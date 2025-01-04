@@ -13,3 +13,9 @@ function updateThemeLabel() {
     const isDarkMode = document.body.classList.contains('dark-mode');
     themeLabel.textContent = isDarkMode ? 'Sötét mód' : 'Világos mód';
 }
+
+function showForm(formId) {
+    document.getElementById('login-form').style.display = 'none';
+    document.getElementById('register-form').style.display = 'none';
+    document.getElementById(formId + '-form').style.display = 'block';
+}

@@ -32,6 +32,32 @@
     <header>
         <img src="images/logo.png" alt="PillPal 'Az emberek barátja'" width="100">
         <h1 style="margin-top: -10px;">PillPal</h1>
+        <div class="container">
+            <div class="tabs">
+                <button onclick="showForm('login')">Bejelentkezés</button>
+                <button onclick="showForm('register')">Regisztráció</button>
+            </div>
+            <div class="form-container">
+                <div id="login-form" style="display: block;">
+                    <h2>Bejelentkezés</h2>
+                    <form>
+                        <input type="email" placeholder="E-mail" required>
+                        <input type="password" placeholder="Jelszó" required>
+                        <button type="submit">Bejelentkezés</button>
+                    </form>
+                </div>
+                <div id="register-form" style="display: none;">
+                    <h2>Regisztráció</h2>
+                    <form>
+                        <input type="text" placeholder="Teljes név" required>
+                        <input type="email" placeholder="E-mail" required>
+                        <input type="password" placeholder="Jelszó" required>
+                        <input type="password" placeholder="Jelszó megerősítése" required>
+                        <button type="submit">Regisztráció</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </header>
     <!-- Fő tartalom -->
     <main>

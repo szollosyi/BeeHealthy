@@ -7,6 +7,8 @@ body {
     margin: 0;
     padding: 0;
     transition: background-color 0.4s, color 0.4s;
+    justify-content: center;
+    align-items: center;
 }
 
 header img {
@@ -190,4 +192,82 @@ input:checked + .slider {
 body.dark-mode {
     --bg-color: rgb(38, 38, 38);
     --text-color: white;
+}
+
+.container {
+    background: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tabs {
+    flex-basis: 40%;
+    background: #0072ff;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.tabs button {
+    background: none;
+    border: 2px solid white;
+    color: white;
+    font-size: 1.2rem;
+    margin: 10px 0;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.tabs button:hover {
+    background: white;
+    color: #0072ff;
+}
+
+.form-container {
+    flex-basis: 60%;
+    padding: 40px;
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container input {
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.form-container button {
+    background: #0072ff;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.form-container button:hover {
+    background: #0072ff;
 }
