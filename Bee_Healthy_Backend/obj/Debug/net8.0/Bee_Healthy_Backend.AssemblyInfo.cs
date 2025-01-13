@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Bee_Healthy_Backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7b026d5de2bb82f8935426252aedf8a7b935ff64")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8182b59360c435e88f6b1bae9931419d25ff4bbf")]
 [assembly: System.Reflection.AssemblyProductAttribute("Bee_Healthy_Backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Bee_Healthy_Backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
