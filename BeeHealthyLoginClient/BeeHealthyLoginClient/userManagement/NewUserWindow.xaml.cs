@@ -29,8 +29,8 @@ namespace BeeHealthyLoginClient.userManagement
             InitializeComponent();
             client = MainWindow.sharedClient;
             string currentDir = Directory.GetCurrentDirectory();
-            //imgProfilkep.Source = new BitmapImage(new Uri($"{currentDir}/Images/default.jpg", UriKind.Absolute));
-            //tbProfilkep.Text = $"default.jpg";
+            imgProfilkep.Source = new BitmapImage(new Uri($"{currentDir}/Images/default.jpg", UriKind.Absolute));
+            tbProfilkep.Text = $"default.jpg";
         }
 
         private void ImageSelect_Click(object sender, RoutedEventArgs e)
