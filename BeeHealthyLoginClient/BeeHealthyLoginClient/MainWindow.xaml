@@ -20,7 +20,8 @@
                       Name="mitemFelhasznalok">
                 <MenuItem Header="Felhasználók listázása"
                           Click="UserListWindow"/>
-                <MenuItem Header="Felhasználó rögzítése"/>
+                <MenuItem Header="Felhasználó rögzítése"
+                          Click="HozzaadWindow"/>
                 <MenuItem Header="Felhasználó módosítása"/>
                 <MenuItem Header="Felhasználók törlése"/>
             </MenuItem>

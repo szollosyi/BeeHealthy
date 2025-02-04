@@ -79,5 +79,11 @@ namespace BeeHealthyLoginClient
             UserListWindow userlistWindow = new UserListWindow();
             userlistWindow.ShowDialog();
         }
+
+        private void HozzaadWindow(object sender, RoutedEventArgs e)
+        {
+            NewUserWindow newuserWindow = new NewUserWindow();
+            newuserWindow.ShowDialog();
+        }
     }
 }

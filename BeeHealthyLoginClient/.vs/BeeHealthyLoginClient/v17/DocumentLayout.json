@@ -1,17 +1,25 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Vizsga\\Desktop\\Asztalialk\\BeeHealthyLoginClient\\",
+  "WorkspaceRootPath": "C:\\Users\\Vizsga\\Desktop\\Vizsga\\BeeHealthy\\BeeHealthyLoginClient\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0B34E9EE-11DF-4DAD-A0AB-DF650BA2D82E}|BeeHealthyLoginClient\\BeeHealthyLoginClient.csproj|c:\\users\\vizsga\\desktop\\asztalialk\\beehealthyloginclient\\beehealthyloginclient\\usermanagement\\newuserwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{0B34E9EE-11DF-4DAD-A0AB-DF650BA2D82E}|BeeHealthyLoginClient\\BeeHealthyLoginClient.csproj|c:\\users\\vizsga\\desktop\\vizsga\\beehealthy\\beehealthyloginclient\\beehealthyloginclient\\usermanagement\\newuserwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B34E9EE-11DF-4DAD-A0AB-DF650BA2D82E}|BeeHealthyLoginClient\\BeeHealthyLoginClient.csproj|solutionrelative:beehealthyloginclient\\usermanagement\\newuserwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B34E9EE-11DF-4DAD-A0AB-DF650BA2D82E}|BeeHealthyLoginClient\\BeeHealthyLoginClient.csproj|c:\\users\\vizsga\\desktop\\vizsga\\beehealthy\\beehealthyloginclient\\beehealthyloginclient\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B34E9EE-11DF-4DAD-A0AB-DF650BA2D82E}|BeeHealthyLoginClient\\BeeHealthyLoginClient.csproj|solutionrelative:beehealthyloginclient\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B34E9EE-11DF-4DAD-A0AB-DF650BA2D82E}|BeeHealthyLoginClient\\BeeHealthyLoginClient.csproj|c:\\users\\vizsga\\desktop\\vizsga\\beehealthy\\beehealthyloginclient\\beehealthyloginclient\\usermanagement\\newuserwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{0B34E9EE-11DF-4DAD-A0AB-DF650BA2D82E}|BeeHealthyLoginClient\\BeeHealthyLoginClient.csproj|solutionrelative:beehealthyloginclient\\usermanagement\\newuserwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0B34E9EE-11DF-4DAD-A0AB-DF650BA2D82E}|BeeHealthyLoginClient\\BeeHealthyLoginClient.csproj|c:\\users\\vizsga\\desktop\\asztalialk\\beehealthyloginclient\\beehealthyloginclient\\userlistwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0B34E9EE-11DF-4DAD-A0AB-DF650BA2D82E}|BeeHealthyLoginClient\\BeeHealthyLoginClient.csproj|c:\\users\\vizsga\\desktop\\vizsga\\beehealthy\\beehealthyloginclient\\beehealthyloginclient\\userlistwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0B34E9EE-11DF-4DAD-A0AB-DF650BA2D82E}|BeeHealthyLoginClient\\BeeHealthyLoginClient.csproj|solutionrelative:beehealthyloginclient\\userlistwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0B34E9EE-11DF-4DAD-A0AB-DF650BA2D82E}|BeeHealthyLoginClient\\BeeHealthyLoginClient.csproj|c:\\users\\vizsga\\desktop\\asztalialk\\beehealthyloginclient\\beehealthyloginclient\\usermanagement\\userlistwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{0B34E9EE-11DF-4DAD-A0AB-DF650BA2D82E}|BeeHealthyLoginClient\\BeeHealthyLoginClient.csproj|c:\\users\\vizsga\\desktop\\vizsga\\beehealthy\\beehealthyloginclient\\beehealthyloginclient\\usermanagement\\userlistwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{0B34E9EE-11DF-4DAD-A0AB-DF650BA2D82E}|BeeHealthyLoginClient\\BeeHealthyLoginClient.csproj|solutionrelative:beehealthyloginclient\\usermanagement\\userlistwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
@@ -22,15 +30,41 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Vizsga\\Desktop\\Vizsga\\BeeHealthy\\BeeHealthyLoginClient\\BeeHealthyLoginClient\\Models\\User.cs",
+              "RelativeDocumentMoniker": "BeeHealthyLoginClient\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\Vizsga\\Desktop\\Vizsga\\BeeHealthy\\BeeHealthyLoginClient\\BeeHealthyLoginClient\\Models\\User.cs",
+              "RelativeToolTip": "BeeHealthyLoginClient\\Models\\User.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAA1wBcAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-04T12:36:11.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "NewUserWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Vizsga\\Desktop\\Vizsga\\BeeHealthy\\BeeHealthyLoginClient\\BeeHealthyLoginClient\\userManagement\\NewUserWindow.xaml.cs",
+              "RelativeDocumentMoniker": "BeeHealthyLoginClient\\userManagement\\NewUserWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Vizsga\\Desktop\\Vizsga\\BeeHealthy\\BeeHealthyLoginClient\\BeeHealthyLoginClient\\userManagement\\NewUserWindow.xaml.cs",
+              "RelativeToolTip": "BeeHealthyLoginClient\\userManagement\\NewUserWindow.xaml.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAYwCAAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-04T12:05:22.385Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "NewUserWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\Vizsga\\Desktop\\Asztalialk\\BeeHealthyLoginClient\\BeeHealthyLoginClient\\userManagement\\NewUserWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Vizsga\\Desktop\\Vizsga\\BeeHealthy\\BeeHealthyLoginClient\\BeeHealthyLoginClient\\userManagement\\NewUserWindow.xaml",
               "RelativeDocumentMoniker": "BeeHealthyLoginClient\\userManagement\\NewUserWindow.xaml",
-              "ToolTip": "C:\\Users\\Vizsga\\Desktop\\Asztalialk\\BeeHealthyLoginClient\\BeeHealthyLoginClient\\userManagement\\NewUserWindow.xaml",
+              "ToolTip": "C:\\Users\\Vizsga\\Desktop\\Vizsga\\BeeHealthy\\BeeHealthyLoginClient\\BeeHealthyLoginClient\\userManagement\\NewUserWindow.xaml",
               "RelativeToolTip": "BeeHealthyLoginClient\\userManagement\\NewUserWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-02-04T11:46:47.453Z",
@@ -38,24 +72,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "UserListWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Vizsga\\Desktop\\Asztalialk\\BeeHealthyLoginClient\\BeeHealthyLoginClient\\UserListWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Vizsga\\Desktop\\Vizsga\\BeeHealthy\\BeeHealthyLoginClient\\BeeHealthyLoginClient\\UserListWindow.xaml.cs",
               "RelativeDocumentMoniker": "BeeHealthyLoginClient\\UserListWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\Vizsga\\Desktop\\Asztalialk\\BeeHealthyLoginClient\\BeeHealthyLoginClient\\UserListWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Vizsga\\Desktop\\Vizsga\\BeeHealthy\\BeeHealthyLoginClient\\BeeHealthyLoginClient\\UserListWindow.xaml.cs",
               "RelativeToolTip": "BeeHealthyLoginClient\\UserListWindow.xaml.cs",
               "ViewState": "AQIAABoAAAAAAAAAAAAYwCcAAABHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-04T10:54:05.908Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-04T10:54:05.908Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "UserListWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\Vizsga\\Desktop\\Asztalialk\\BeeHealthyLoginClient\\BeeHealthyLoginClient\\userManagement\\UserListWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Vizsga\\Desktop\\Vizsga\\BeeHealthy\\BeeHealthyLoginClient\\BeeHealthyLoginClient\\userManagement\\UserListWindow.xaml",
               "RelativeDocumentMoniker": "BeeHealthyLoginClient\\userManagement\\UserListWindow.xaml",
-              "ToolTip": "C:\\Users\\Vizsga\\Desktop\\Asztalialk\\BeeHealthyLoginClient\\BeeHealthyLoginClient\\userManagement\\UserListWindow.xaml",
+              "ToolTip": "C:\\Users\\Vizsga\\Desktop\\Vizsga\\BeeHealthy\\BeeHealthyLoginClient\\BeeHealthyLoginClient\\userManagement\\UserListWindow.xaml",
               "RelativeToolTip": "BeeHealthyLoginClient\\userManagement\\UserListWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-02-04T10:50:37.536Z",
