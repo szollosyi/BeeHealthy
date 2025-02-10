@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\Bee_Healthy_Backend.props" />
-</Project>

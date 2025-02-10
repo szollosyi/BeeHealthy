@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\Bee_Healthy_Backend.props" />
-</Project>
