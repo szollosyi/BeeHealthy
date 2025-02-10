@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <title>Bee Healthy</title>
+</head>
+<body>
+    <!-- Sötét mód kapcsoló -->
+    <div id="theme-switch-container">
+        <label class="neumorphic-switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+        </label>
+        <p id="theme-label">Világos mód</p> <!-- Dinamikusan frissülő szöveg -->
+    </div>
+
+    <!-- Navigációs menü -->
+    <nav>
+        <ul>
+            <li><a href="#leiras">Leírás</a></li>
+            <li><a href="#kepek">Képek</a></li>
+            <li><a href="#letoltes">Letöltés</a></li>
+            <li><a href="#visszajelzes">Visszajelzés</a></li>
+        </ul>
+    </nav>
+
+    <!-- Fejléc -->
+    <header>
+        <img src="images/logo.png" alt="BeeHealthy 'Az emberek barátja'" width="100">
+        <h1 style="margin-top: -10px;">BeeHealthy</h1>
+        <div class="container">
+            <div class="tabs">
+                <button onclick="showForm('login')">Bejelentkezés</button>
+                <button onclick="showForm('register')">Regisztráció</button>
+            </div>
+            <div class="form-container">
+                <div id="login-form" style="display: block;">
+                    <h2>Bejelentkezés</h2>
+                    <form>
+                        <input type="email" placeholder="E-mail" required>
+                        <input type="password" placeholder="Jelszó" required>
+                        <button type="submit">Bejelentkezés</button>
+                    </form>
+                </div>
+                <div id="register-form" style="display: none;">
+                    <h2>Regisztráció</h2>
+                    <form>
+                        <input type="text" placeholder="Teljes név" required>
+                        <input type="email" placeholder="E-mail" required>
+                        <input type="password" placeholder="Jelszó" required>
+                        <input type="password" placeholder="Jelszó megerősítése" required>
+                        <button type="submit">Regisztráció</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Fő tartalom -->
+    <main>
+        <section id="leiras">
+            <p>
+                A BeeHealthy egy felhasználóbarát gyógyszerkezelő alkalmazás, amely segít a felhasználóknak nyomon követni és pontosan betartani a gyógyszeres terápiájukat.<br>
+                Az alkalmazás emlékeztető funkcióval figyelmeztet a gyógyszerek bevételére, nyilvántartja az adagolást és az időpontokat, így csökkentve a kihagyott adagok esélyét.<br>
+                Ezen felül lehetőséget biztosít a gyógyszerek leltározására, az orvosi előírások kezelésére, és figyelmeztet az esetleges gyógyszer-összeférhetetlenségekre is.<br>
+                A BeeHealthy ideális választás mindazoknak, akik szeretnék egyszerűsíteni és rendszerezni a gyógyszerszedésüket, valamint növelni a terápiás fegyelem hatékonyságát.
+            </p>
+        </section>
+
+        <section id="kepek">
+            <h2>Az alkalmazás képernyőképei</h2>
+            <div class="image-container">
+                <img src="images/app-screenshot1.png" alt="BeeHealthy képernyőkép 1" width="300">
+                <img src="images/app-screenshot2.png" alt="BeeHealthy képernyőkép 2" width="300">
+                <img src="images/app-screenshot3.png" alt="BeeHealthy képernyőkép 3" width="300">
+            </div>
+        </section>
+
+        <section id="letoltes" class="download">
+            <a href="https://github.com/szollosyi/BeeHealthy/archive/refs/heads/frontend.zip" download>
+                <button class="fancy-button" title="Töltsd le most az alkalmazást!">Letöltés</button>
+            </a>
+        </section>
+
+        <section id="visszajelzes">
+            <h2>Visszajelzés</h2>
+            <form action="submit-feedback.php" method="post">
+                <textarea name="message" rows="5" placeholder="Írd meg a véleményedet..."></textarea>
+                <button type="submit">Elküld</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
