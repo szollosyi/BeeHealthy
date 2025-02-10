@@ -15,6 +15,8 @@ public partial class BeeHealthyContext : DbContext
     {
     }
 
+    public virtual DbSet<Gyarto> Gyartos { get; set; }
+
     public virtual DbSet<GyogyszerAdatok> GyogyszerAdatoks { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
@@ -25,15 +27,30 @@ public partial class BeeHealthyContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Gyarto>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity.ToTable("gyarto");
+
+            entity.Property(e => e.Id).HasColumnType("int(11)");
+            entity.Property(e => e.Cim).HasMaxLength(64);
+            entity.Property(e => e.Leiras).HasColumnType("text");
+            entity.Property(e => e.Nev).HasMaxLength(64);
+        });
+
         modelBuilder.Entity<GyogyszerAdatok>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
             entity.ToTable("gyogyszer_adatok");
 
+            entity.HasIndex(e => e.GyartoId, "GyartoId");
+
             entity.Property(e => e.Id).HasColumnType("int(11)");
             entity.Property(e => e.Adagolas).HasMaxLength(64);
             entity.Property(e => e.Emlekezteto).HasColumnType("date");
+            entity.Property(e => e.GyartoId).HasColumnType("int(11)");
             entity.Property(e => e.GyogyszerNev)
                 .HasMaxLength(64)
                 .HasColumnName("Gyogyszer_nev");
@@ -46,6 +63,10 @@ public partial class BeeHealthyContext : DbContext
                 .HasColumnName("Kezelesi_idopont");
             entity.Property(e => e.Marka).HasMaxLength(64);
             entity.Property(e => e.Megjegyzes).HasMaxLength(100);
+
+            entity.HasOne(d => d.Gyarto).WithMany(p => p.GyogyszerAdatoks)
+                .HasForeignKey(d => d.GyartoId)
+                .HasConstraintName("gyogyszer_adatok_ibfk_1");
         });
 
         modelBuilder.Entity<User>(entity =>

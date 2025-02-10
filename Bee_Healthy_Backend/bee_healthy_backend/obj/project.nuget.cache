@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7nT9Zl31iG9dJiLL8IEmj6bVjtcogHIE2rdz1VguHf5fk5cm0UUwt+7FoBrmW87UjlwVZ7XZxzXZOgujUldqnw==",
+  "dgSpecHash": "gV2vSro+/I0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Vizsga\\source\\repos\\bee_healthy_backend\\bee_healthy_backend\\bee_healthy_backend.csproj",
+  "projectFilePath": "C:\\Users\\Vizsga\\Desktop\\BeeHealthy\\Bee_Healthy_Backend\\bee_healthy_backend\\bee_healthy_backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Vizsga\\.nuget\\packages\\bouncycastle.cryptography\\2.3.1\\bouncycastle.cryptography.2.3.1.nupkg.sha512",
     "C:\\Users\\Vizsga\\.nuget\\packages\\google.protobuf\\3.26.1\\google.protobuf.3.26.1.nupkg.sha512",
@@ -77,5 +77,16 @@
     "C:\\Users\\Vizsga\\.nuget\\packages\\system.windows.extensions\\8.0.0\\system.windows.extensions.8.0.0.nupkg.sha512",
     "C:\\Users\\Vizsga\\.nuget\\packages\\zstdsharp.port\\0.8.0\\zstdsharp.port.0.8.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.Text.Json' 8.0.4 has a known high severity vulnerability, https://github.com/advisories/GHSA-8g4q-xg66-9fp4",
+      "libraryId": "System.Text.Json",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }

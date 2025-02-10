@@ -11,6 +11,8 @@ public partial class GyogyszerAdatok
 
     public string Marka { get; set; } = null!;
 
+    public int GyartoId { get; set; }
+
     public string Kategoria { get; set; } = null!;
 
     public string Adagolas { get; set; } = null!;
@@ -22,4 +24,6 @@ public partial class GyogyszerAdatok
     public DateTime Emlekezteto { get; set; }
 
     public string Megjegyzes { get; set; } = null!;
+
+    public virtual Gyarto Gyarto { get; set; } = null!;
 }

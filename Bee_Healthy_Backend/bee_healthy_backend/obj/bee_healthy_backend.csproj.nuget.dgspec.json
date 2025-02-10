@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Vizsga\\source\\repos\\bee_healthy_backend\\bee_healthy_backend\\bee_healthy_backend.csproj": {}
+    "C:\\Users\\Vizsga\\Desktop\\BeeHealthy\\Bee_Healthy_Backend\\bee_healthy_backend\\bee_healthy_backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vizsga\\source\\repos\\bee_healthy_backend\\bee_healthy_backend\\bee_healthy_backend.csproj": {
+    "C:\\Users\\Vizsga\\Desktop\\BeeHealthy\\Bee_Healthy_Backend\\bee_healthy_backend\\bee_healthy_backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vizsga\\source\\repos\\bee_healthy_backend\\bee_healthy_backend\\bee_healthy_backend.csproj",
+        "projectUniqueName": "C:\\Users\\Vizsga\\Desktop\\BeeHealthy\\Bee_Healthy_Backend\\bee_healthy_backend\\bee_healthy_backend.csproj",
         "projectName": "bee_healthy_backend",
-        "projectPath": "C:\\Users\\Vizsga\\source\\repos\\bee_healthy_backend\\bee_healthy_backend\\bee_healthy_backend.csproj",
+        "projectPath": "C:\\Users\\Vizsga\\Desktop\\BeeHealthy\\Bee_Healthy_Backend\\bee_healthy_backend\\bee_healthy_backend.csproj",
         "packagesPath": "C:\\Users\\Vizsga\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vizsga\\source\\repos\\bee_healthy_backend\\bee_healthy_backend\\obj\\",
+        "outputPath": "C:\\Users\\Vizsga\\Desktop\\BeeHealthy\\Bee_Healthy_Backend\\bee_healthy_backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -43,8 +43,9 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
-        }
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -96,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
