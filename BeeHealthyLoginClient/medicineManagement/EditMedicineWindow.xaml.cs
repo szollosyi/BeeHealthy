@@ -22,6 +22,24 @@ namespace BeeHealthyLoginClient.medicineManagement
     /// </summary>
     public partial class EditMedicineWindow : Window
     {
+        public EditMedicineWindow()
+        {
+            InitializeComponent();
+        }
+
+        private void Torles(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Modositas(object sender, RoutedEventArgs e)
+        {
+
+        }
         
+        private void Megse(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -33,10 +33,10 @@ namespace BeeHealthyLoginClient
             var response = await client.PostAsync($"api/Login/SaltRequest/{tbxFelhasznalonev.Text}", 
                 new StringContent(tbxFelhasznalonev.Text, Encoding.UTF8, "text/plain"));
             string salt = await response.Content.ReadAsStringAsync();
-            MessageBox.Show(salt);
+            //MessageBox.Show(salt);
 
             string tmpHash = MainWindow.CreateSHA256(tbxJelszo.Password + salt);
-            MessageBox.Show(tmpHash);
+            //MessageBox.Show(tmpHash);
             LoginDTO dtoUser = new LoginDTO() {
                 LoginName = tbxFelhasznalonev.Text,
                 TmpHash = tmpHash
@@ -46,10 +46,13 @@ namespace BeeHealthyLoginClient
             var body = new StringContent(felhAdatok, Encoding.UTF8, "application/json");
             var valasz = await client.PostAsync("api/Login", body);
             var content = await valasz.Content.ReadAsStringAsync();
-            MessageBox.Show(content);
-
+            //MessageBox.Show(content);
+            JsonSerializerOptions options = new JsonSerializerOptions()
+            {
+                PropertyNameCaseInsensitive = true
+            };
             LoggedUser bejelentkezett =
-                JsonSerializer.Deserialize<LoggedUser>(content);
+                JsonSerializer.Deserialize<LoggedUser>(content,options);
             MessageBox.Show(bejelentkezett.Token);
 
             string[] darabok = content.Split('"');

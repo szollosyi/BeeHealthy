@@ -23,5 +23,15 @@ namespace BeeHealthyLoginClient.medicineManagement
         {
             InitializeComponent();
         }
+
+        private void Mentes(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Megse(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

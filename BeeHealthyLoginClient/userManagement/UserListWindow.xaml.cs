@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -39,18 +40,17 @@ namespace BeeHealthyLoginClient.userManagement
                 string url = $"{client.BaseAddress}api/User/{MainWindow.uId}?uId={MainWindow.uId}";
                 users = await client.GetFromJsonAsync<List<User>>(url);
 
-                /*Másik lehetőség:
-                var response = await client.GetAsync(url);
-                if (response.IsSuccessStatusCode)
-                {
-                    string content = await response.Content.ReadAsStringAsync();
-                    JsonSerializerOptions options = new JsonSerializerOptions()
-                    {
-                        PropertyNameCaseInsensitive = true
-                    };
-                    users = JsonSerializer.Deserialize<List<User>>(content, options)!;
-                }
-                */
+                //Másik lehetőség:
+                //var response = await client.GetAsync(url);
+                //if (response.IsSuccessStatusCode)
+                //{
+                //    string content = await response.Content.ReadAsStringAsync();
+                //    JsonSerializerOptions options = new JsonSerializerOptions()
+                //    {
+                //        PropertyNameCaseInsensitive = true
+                //    };
+                //    users = JsonSerializer.Deserialize<List<User>>(content, options)!;
+                //}
             }
             catch (Exception ex)
             {

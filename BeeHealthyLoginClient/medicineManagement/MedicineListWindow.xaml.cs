@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -35,21 +36,21 @@ namespace BeeHealthyLoginClient.medicineManagement
         {
             try
             {
-                string url = $"{client.BaseAddress}api/GyogyszerAdatok/{MainWindow.uId}?uId={MainWindow.uId}";
+                string url = $"{client.BaseAddress}api/GyogyszerAdatok/{MainWindow.uId}?token={MainWindow.uId}";
                 medicines = await client.GetFromJsonAsync<List<GyogyszerAdatok>>(url);
 
-                /*Másik lehetőség:
-                var response = await client.GetAsync(url);
-                if (response.IsSuccessStatusCode)
-                {
-                    string content = await response.Content.ReadAsStringAsync();
-                    JsonSerializerOptions options = new JsonSerializerOptions()
-                    {
-                        PropertyNameCaseInsensitive = true
-                    };
-                    users = JsonSerializer.Deserialize<List<User>>(content, options)!;
-                }
-                */
+                //Másik lehetőség:
+                //var response = await client.GetAsync(url);
+                //if (response.IsSuccessStatusCode)
+                //{
+                //    string content = await response.Content.ReadAsStringAsync();
+                //    JsonSerializerOptions options = new JsonSerializerOptions()
+                //    {
+                //        PropertyNameCaseInsensitive = true
+                //    };
+                //    medicines = JsonSerializer.Deserialize<List<GyogyszerAdatok>>(content, options)!;
+                //}
+
             }
             catch (Exception ex)
             {

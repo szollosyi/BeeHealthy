@@ -102,14 +102,14 @@ namespace BeeHealthyLoginClient
 
         private void NewMedicineWindow(object sender, RoutedEventArgs e)
         {
-            EditUserWindow edituserWindow = new EditUserWindow();
-            edituserWindow.ShowDialog();
+            NewMedicineWindow newMedicineWindow = new NewMedicineWindow();
+            newMedicineWindow.ShowDialog();
         }
 
         private void EditMedicineWindow(object sender, RoutedEventArgs e)
         {
-            EditUserWindow edituserWindow = new EditUserWindow();
-            edituserWindow.ShowDialog();
+            EditMedicineWindow editMedicineWindow = new EditMedicineWindow();
+            editMedicineWindow.ShowDialog();
         }
     }
 }
