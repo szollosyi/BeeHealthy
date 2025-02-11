@@ -10,6 +10,15 @@
     <Compile Update="LoginWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="medicineManagement\EditMedicineWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="medicineManagement\MedicineListWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="medicineManagement\NewMedicineWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="userManagement\UserListWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -25,6 +34,15 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="medicineManagement\EditMedicineWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="medicineManagement\MedicineListWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="medicineManagement\NewMedicineWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="userManagement\EditUserWindow.xaml">

@@ -21,19 +21,19 @@
                 <MenuItem Header="Felhasználók listázása"
                           Click="UserListWindow"/>
                 <MenuItem Header="Felhasználó rögzítése"
-                          Click="HozzaadWindow"/>
+                          Click="NewUserWindow"/>
                 <MenuItem Header="Felhasználó módosítása/törlése"
-                          Click="ModositasWindow"/>
+                          Click="EditUserWindow"/>
             </MenuItem>
             <MenuItem Header="Gyógyszerek" 
-          IsEnabled="False"
-          Name="mitemGyogyszerek">
+                      IsEnabled="False"
+                      Name="mitemGyogyszerek">
                 <MenuItem Header="Gyógyszerek listázása"
-              Click="UserListWindow"/>
+                        Click="MedicineListWindow"/>
                 <MenuItem Header="Gyógyszer rögzítése"
-              Click="HozzaadWindow"/>
+                      Click="NewMedicineWindow"/>
                 <MenuItem Header="Gyógyszer módosítása/törlése"
-              Click="ModositasWindow"/>
+                      Click="EditMedicineWindow"/>
             </MenuItem>
         </Menu>
     </Grid>

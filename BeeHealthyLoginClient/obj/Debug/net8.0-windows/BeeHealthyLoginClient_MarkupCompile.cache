@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Vizsga\Desktop\BeeHealthy\BeeHealthyLoginClient\obj\Debug\net8.0-windows\
+C:\Users\Vizsga\Documents\BeeHealthy\BeeHealthyLoginClient\obj\Debug\net8.0-windows\
 BeeHealthyLoginClient
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\Vizsga\Desktop\BeeHealthy\BeeHealthyLoginClient\App.xaml
-51075455288
+C:\Users\Vizsga\Documents\BeeHealthy\BeeHealthyLoginClient\App.xaml
+8-90692049
 
-111558873930
+16-381291860
 198-1509178875
-LoginWindow.xaml;MainWindow.xaml;userManagement\EditUserWindow.xaml;userManagement\NewUserWindow.xaml;userManagement\UserListWindow.xaml;
+LoginWindow.xaml;MainWindow.xaml;medicineManagement\EditMedicineWindow.xaml;medicineManagement\MedicineListWindow.xaml;medicineManagement\NewMedicineWindow.xaml;userManagement\EditUserWindow.xaml;userManagement\NewUserWindow.xaml;userManagement\UserListWindow.xaml;
 
 False
 

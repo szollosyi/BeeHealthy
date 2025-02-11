@@ -1,4 +1,5 @@
-﻿using BeeHealthyLoginClient.userManagement;
+﻿using BeeHealthyLoginClient.medicineManagement;
+using BeeHealthyLoginClient.userManagement;
 using System.Net.Http;
 using System.Security.Cryptography;
 using System.Text;
@@ -81,13 +82,31 @@ namespace BeeHealthyLoginClient
             userlistWindow.ShowDialog();
         }
 
-        private void HozzaadWindow(object sender, RoutedEventArgs e)
+        private void NewUserWindow(object sender, RoutedEventArgs e)
         {
             NewUserWindow newuserWindow = new NewUserWindow();
             newuserWindow.ShowDialog();
         }
 
-        private void ModositasWindow(object sender, RoutedEventArgs e)
+        private void EditUserWindow(object sender, RoutedEventArgs e)
+        {
+            EditUserWindow edituserWindow = new EditUserWindow();
+            edituserWindow.ShowDialog();
+        }
+
+        private void MedicineListWindow(object sender, RoutedEventArgs e)
+        {
+            MedicineListWindow medicineListWindow = new MedicineListWindow();
+            medicineListWindow.ShowDialog();
+        }
+
+        private void NewMedicineWindow(object sender, RoutedEventArgs e)
+        {
+            EditUserWindow edituserWindow = new EditUserWindow();
+            edituserWindow.ShowDialog();
+        }
+
+        private void EditMedicineWindow(object sender, RoutedEventArgs e)
         {
             EditUserWindow edituserWindow = new EditUserWindow();
             edituserWindow.ShowDialog();
