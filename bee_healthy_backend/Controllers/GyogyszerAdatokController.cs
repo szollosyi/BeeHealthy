@@ -33,6 +33,9 @@ namespace bee_healthy_backend.Controllers
             }
         }
 
+
+
+
         [HttpPost("{token}")]
 
         public IActionResult Post(string token, GyogyszerAdatok gyogyszeradat)
