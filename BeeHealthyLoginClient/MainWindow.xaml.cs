@@ -65,6 +65,7 @@ namespace BeeHealthyLoginClient
             loginWindow.ShowDialog();
             if (uId != "")
             {
+                mitemGyogyszerek.IsEnabled = true;
                 mitemFelhasznalok.IsEnabled = true;
                 mitemBejelentkezes.IsEnabled = false;
             }

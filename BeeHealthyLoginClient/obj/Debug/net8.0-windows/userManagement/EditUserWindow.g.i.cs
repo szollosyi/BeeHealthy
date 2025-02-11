@@ -125,7 +125,7 @@ namespace BeeHealthyLoginClient.userManagement {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BeeHealthyLoginClient;V1.0.0.0;component/usermanagement/edituserwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BeeHealthyLoginClient;component/usermanagement/edituserwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\userManagement\EditUserWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -25,7 +25,16 @@
                 <MenuItem Header="Felhasználó módosítása/törlése"
                           Click="ModositasWindow"/>
             </MenuItem>
+            <MenuItem Header="Gyógyszerek" 
+          IsEnabled="False"
+          Name="mitemGyogyszerek">
+                <MenuItem Header="Gyógyszerek listázása"
+              Click="UserListWindow"/>
+                <MenuItem Header="Gyógyszer rögzítése"
+              Click="HozzaadWindow"/>
+                <MenuItem Header="Gyógyszer módosítása/törlése"
+              Click="ModositasWindow"/>
+            </MenuItem>
         </Menu>
-
     </Grid>
 </Window>
