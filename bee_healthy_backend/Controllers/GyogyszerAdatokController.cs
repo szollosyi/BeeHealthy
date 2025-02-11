@@ -29,7 +29,7 @@ namespace bee_healthy_backend.Controllers
             }
             else
             {
-                return BadRequest("Nincs hozzá jogod!");
+                return BadRequest("Nincs Jogod hozzá!");
             }
         }
 
@@ -59,7 +59,56 @@ namespace bee_healthy_backend.Controllers
             }
         }
 
+        [HttpPut("{token}")]
 
+        public IActionResult Put(string token, GyogyszerAdatok gyogyszeradat)
+        {
+            if (Program.LoggedInUsers.ContainsKey(token) && Program.LoggedInUsers[token].PermissionId == 9)
+            {
+                try
+                {
+                    using (var cx = new BeeHealthyContext())
+                    {
+                        cx.GyogyszerAdatoks.Update(gyogyszeradat);
+                        cx.SaveChanges();
+                        return Ok("A gyógyszer adatai módosítva.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.InnerException?.Message);
+                }
+            }
+            else
+            {
+                return BadRequest("Nincs Jogod hozzá!");
+            }
+        }
 
+        [HttpDelete("{token}, {id}")]
+
+        public IActionResult Delete(string token, int id)
+        {
+            if (Program.LoggedInUsers.ContainsKey(token) && Program.LoggedInUsers[token].PermissionId == 9)
+            {
+                try
+                {
+                    using (var cx = new BeeHealthyContext())
+                    {
+                        cx.GyogyszerAdatoks.Remove(new GyogyszerAdatok { Id = id });
+                        cx.SaveChanges();
+                        return Ok("A gyógyszer adatai törölve.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.InnerException?.Message);
+                }
+            }
+            else
+            {
+                return BadRequest("Nincs Jogod hozzá!");
+            }
+        }
     }
 }

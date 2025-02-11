@@ -9,8 +9,6 @@ public partial class GyogyszerAdatok
 
     public string GyogyszerNev { get; set; } = null!;
 
-    public string Marka { get; set; } = null!;
-
     public int GyartoId { get; set; }
 
     public string Kategoria { get; set; } = null!;

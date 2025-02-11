@@ -61,7 +61,6 @@ public partial class BeeHealthyContext : DbContext
             entity.Property(e => e.KezelesiIdopont)
                 .HasMaxLength(64)
                 .HasColumnName("Kezelesi_idopont");
-            entity.Property(e => e.Marka).HasMaxLength(64);
             entity.Property(e => e.Megjegyzes).HasMaxLength(100);
 
             entity.HasOne(d => d.Gyarto).WithMany(p => p.GyogyszerAdatoks)

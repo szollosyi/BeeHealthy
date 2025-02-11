@@ -87,7 +87,49 @@
       },
       {
         "Name": "gyogyszeradat",
-        "Type": "bee_healthy_backend.Models.User",
+        "Type": "bee_healthy_backend.Models.GyogyszerAdatok",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "bee_healthy_backend.Controllers.GyogyszerAdatokController",
+    "Method": "Put",
+    "RelativePath": "api/GyogyszerAdatok/{token}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "gyogyszeradat",
+        "Type": "bee_healthy_backend.Models.GyogyszerAdatok",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "bee_healthy_backend.Controllers.GyogyszerAdatokController",
+    "Method": "Delete",
+    "RelativePath": "api/GyogyszerAdatok/{token}, {id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
