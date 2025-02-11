@@ -10,7 +10,10 @@
     <Compile Update="LoginWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserListWindow.xaml.cs">
+    <Compile Update="userManagement\UserListWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="userManagement\EditUserWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="userManagement\NewUserWindow.xaml.cs">
@@ -22,6 +25,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="userManagement\EditUserWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="userManagement\NewUserWindow.xaml">

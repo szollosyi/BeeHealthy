@@ -85,5 +85,11 @@ namespace BeeHealthyLoginClient
             NewUserWindow newuserWindow = new NewUserWindow();
             newuserWindow.ShowDialog();
         }
+
+        private void ModositasWindow(object sender, RoutedEventArgs e)
+        {
+            EditUserWindow edituserWindow = new EditUserWindow();
+            edituserWindow.ShowDialog();
+        }
     }
 }
