@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bee_healthy_backend", "bee_healthy_backend\bee_healthy_backend.csproj", "{4501008A-6988-4F4C-B290-2A380AD8596B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bee_healthy_backend", "bee_healthy_backend.csproj", "{4501008A-6988-4F4C-B290-2A380AD8596B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
