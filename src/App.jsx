@@ -5,7 +5,7 @@ import { Gyogyszerek } from './Gyogyszerek';
 import { NemTalalt } from './NemTalalt';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+ 
 export const App = () => {
   return (
     <Router>
