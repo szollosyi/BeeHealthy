@@ -8,7 +8,7 @@ namespace bee_healthy_backend
 {
     public class Program
     {
-        public static int SaltLength = 64;
+        public static int SaltLength = 64; 
 
         public static Dictionary<string, User> LoggedInUsers = new Dictionary<string, User>();
 
