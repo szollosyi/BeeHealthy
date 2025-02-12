@@ -14,7 +14,7 @@ namespace bee_healthy_backend
 
         public static string GenerateSalt()
         {
-            Random random = new Random();
+            Random random = new Random(); 
             string karakterek = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             string salt = "";
             for (int i = 0; i < SaltLength; i++)
