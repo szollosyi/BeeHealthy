@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Feb 11. 07:33
+-- Létrehozás ideje: 2025. Feb 12. 07:38
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -39,7 +39,9 @@ CREATE TABLE `gyarto` (
 --
 
 INSERT INTO `gyarto` (`Id`, `Nev`, `Cim`, `Leiras`) VALUES
-(1, 'Pfhizer', 'USA', 'Szuri');
+(1, 'Pfhizer', 'USA', 'Szuri'),
+(2, 'SANOFI', 'EU', 'Tabletták'),
+(3, 'próbagyartonév', 'próbagyartocím', 'próbagyartoleiras');
 
 -- --------------------------------------------------------
 
@@ -50,7 +52,6 @@ INSERT INTO `gyarto` (`Id`, `Nev`, `Cim`, `Leiras`) VALUES
 CREATE TABLE `gyogyszer_adatok` (
   `Id` int(11) NOT NULL,
   `Gyogyszer_nev` varchar(64) NOT NULL,
-  `Marka` varchar(64) NOT NULL,
   `GyartoId` int(11) NOT NULL,
   `Kategoria` varchar(64) NOT NULL,
   `Adagolas` varchar(64) NOT NULL,
@@ -64,9 +65,52 @@ CREATE TABLE `gyogyszer_adatok` (
 -- A tábla adatainak kiíratása `gyogyszer_adatok`
 --
 
-INSERT INTO `gyogyszer_adatok` (`Id`, `Gyogyszer_nev`, `Marka`, `GyartoId`, `Kategoria`, `Adagolas`, `Kezelesi_idopont`, `Kezeles_idotartama`, `Emlekezteto`, `Megjegyzes`) VALUES
-(1, 'Algopyrin', 'SANOFI', 1, 'Láz - és fájdalomcsillapító', 'Napi max 2 ', 'Délben és este 7 órakor', 'Egy héten át', '2024-12-15', 'Ha a fájdalom nem múlik , az adagolás száma növelhető max 1 darabszámal'),
-(3, 'string', 'string', 1, 'string', 'string', 'string', 'string', '2025-02-10', 'string');
+INSERT INTO `gyogyszer_adatok` (`Id`, `Gyogyszer_nev`, `GyartoId`, `Kategoria`, `Adagolas`, `Kezelesi_idopont`, `Kezeles_idotartama`, `Emlekezteto`, `Megjegyzes`) VALUES
+(1, 'Algopyrin', 1, 'Láz - és fájdalomcsillapító', 'Napi max 2 ', 'Délben és este 7 órakor', 'Egy héten át', '2024-12-15', 'Ha a fájdalom nem múlik , az adagolás száma növelhető max 1 darabszámal'),
+(2, 'Covid oltás', 1, 'Injekció', '1 db', 'Emailben kapott időpontban', '10 perc', '2025-02-13', 'Maszkban jelenjen meg'),
+(3, 'string', 3, 'string', 'string', 'string', 'string', '2025-02-11', 'string'),
+(4, 'string', 1, 'string', 'string', 'string', 'string', '2025-02-11', 'string');
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `orvosok`
+--
+
+CREATE TABLE `orvosok` (
+  `Id` int(11) NOT NULL,
+  `Nev` varchar(64) NOT NULL,
+  `Beosztas` varchar(64) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `orvosok`
+--
+
+INSERT INTO `orvosok` (`Id`, `Nev`, `Beosztas`) VALUES
+(1, 'Dr House', 'Vezér orvos'),
+(2, 'Richter Gedeon', 'Csontkovács');
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `receptek`
+--
+
+CREATE TABLE `receptek` (
+  `Id` int(11) NOT NULL,
+  `UserId` int(11) NOT NULL,
+  `GyogyszerId` int(11) NOT NULL,
+  `OrvosId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `receptek`
+--
+
+INSERT INTO `receptek` (`Id`, `UserId`, `GyogyszerId`, `OrvosId`) VALUES
+(1, 1, 2, 1),
+(2, 15, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -114,6 +158,21 @@ ALTER TABLE `gyogyszer_adatok`
   ADD KEY `GyartoId` (`GyartoId`);
 
 --
+-- A tábla indexei `orvosok`
+--
+ALTER TABLE `orvosok`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- A tábla indexei `receptek`
+--
+ALTER TABLE `receptek`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `UserId` (`UserId`),
+  ADD KEY `GyogyszerId` (`GyogyszerId`),
+  ADD KEY `OrvosId` (`OrvosId`);
+
+--
 -- A tábla indexei `user`
 --
 ALTER TABLE `user`
@@ -130,13 +189,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT a táblához `gyarto`
 --
 ALTER TABLE `gyarto`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT a táblához `gyogyszer_adatok`
 --
 ALTER TABLE `gyogyszer_adatok`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT a táblához `orvosok`
+--
+ALTER TABLE `orvosok`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT a táblához `receptek`
+--
+ALTER TABLE `receptek`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT a táblához `user`
@@ -153,6 +224,14 @@ ALTER TABLE `user`
 --
 ALTER TABLE `gyogyszer_adatok`
   ADD CONSTRAINT `gyogyszer_adatok_ibfk_1` FOREIGN KEY (`GyartoId`) REFERENCES `gyarto` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Megkötések a táblához `receptek`
+--
+ALTER TABLE `receptek`
+  ADD CONSTRAINT `receptek_ibfk_1` FOREIGN KEY (`UserId`) REFERENCES `user` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `receptek_ibfk_2` FOREIGN KEY (`GyogyszerId`) REFERENCES `gyogyszer_adatok` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `receptek_ibfk_3` FOREIGN KEY (`OrvosId`) REFERENCES `orvosok` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
