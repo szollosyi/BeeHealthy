@@ -19,6 +19,10 @@ public partial class BeeHealthyContext : DbContext
 
     public virtual DbSet<GyogyszerAdatok> GyogyszerAdatoks { get; set; }
 
+    public virtual DbSet<Orvosok> Orvosoks { get; set; }
+
+    public virtual DbSet<Receptek> Recepteks { get; set; }
+
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -66,6 +70,47 @@ public partial class BeeHealthyContext : DbContext
             entity.HasOne(d => d.Gyarto).WithMany(p => p.GyogyszerAdatoks)
                 .HasForeignKey(d => d.GyartoId)
                 .HasConstraintName("gyogyszer_adatok_ibfk_1");
+        });
+
+        modelBuilder.Entity<Orvosok>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity.ToTable("orvosok");
+
+            entity.Property(e => e.Id).HasColumnType("int(11)");
+            entity.Property(e => e.Beosztas).HasMaxLength(64);
+            entity.Property(e => e.Nev).HasMaxLength(64);
+        });
+
+        modelBuilder.Entity<Receptek>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity.ToTable("receptek");
+
+            entity.HasIndex(e => e.GyogyszerId, "GyogyszerId");
+
+            entity.HasIndex(e => e.OrvosId, "OrvosId");
+
+            entity.HasIndex(e => e.UserId, "UserId");
+
+            entity.Property(e => e.Id).HasColumnType("int(11)");
+            entity.Property(e => e.GyogyszerId).HasColumnType("int(11)");
+            entity.Property(e => e.OrvosId).HasColumnType("int(11)");
+            entity.Property(e => e.UserId).HasColumnType("int(11)");
+
+            entity.HasOne(d => d.Gyogyszer).WithMany(p => p.Recepteks)
+                .HasForeignKey(d => d.GyogyszerId)
+                .HasConstraintName("receptek_ibfk_2");
+
+            entity.HasOne(d => d.Orvos).WithMany(p => p.Recepteks)
+                .HasForeignKey(d => d.OrvosId)
+                .HasConstraintName("receptek_ibfk_3");
+
+            entity.HasOne(d => d.User).WithMany(p => p.Recepteks)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("receptek_ibfk_1");
         });
 
         modelBuilder.Entity<User>(entity =>

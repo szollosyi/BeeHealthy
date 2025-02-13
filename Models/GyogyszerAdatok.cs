@@ -23,5 +23,7 @@ public partial class GyogyszerAdatok
 
     public string Megjegyzes { get; set; } = null!;
 
-    public virtual Gyarto? Gyarto { get; set; } = null!;
+    public virtual Gyarto Gyarto { get; set; } = null!;
+
+    public virtual ICollection<Receptek> Recepteks { get; set; } = new List<Receptek>();
 }
