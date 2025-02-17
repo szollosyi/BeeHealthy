@@ -61,7 +61,7 @@ namespace bee_healthy_backend.Controllers
                 return BadRequest("Nincs Jogod hozzá!");
             }
         }
-
+         
         [HttpPut("{token}")]
 
         public IActionResult Put(string token, Gyarto gyartoadatok)
