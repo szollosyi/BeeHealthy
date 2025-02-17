@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Feb 12. 07:38
+-- Létrehozás ideje: 2025. Feb 17. 12:46
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -41,7 +41,8 @@ CREATE TABLE `gyarto` (
 INSERT INTO `gyarto` (`Id`, `Nev`, `Cim`, `Leiras`) VALUES
 (1, 'Pfhizer', 'USA', 'Szuri'),
 (2, 'SANOFI', 'EU', 'Tabletták'),
-(3, 'próbagyartonév', 'próbagyartocím', 'próbagyartoleiras');
+(3, 'probagyartonev', 'probagyartpcim', 'probagyartoleiras'),
+(4, 'Szputnyik', 'RU', 'Orosz szuri');
 
 -- --------------------------------------------------------
 
@@ -56,7 +57,8 @@ CREATE TABLE `gyogyszer_adatok` (
   `Kategoria` varchar(64) NOT NULL,
   `Adagolas` varchar(64) NOT NULL,
   `Kezelesi_idopont` varchar(64) NOT NULL,
-  `Kezeles_idotartama` varchar(64) NOT NULL,
+  `KezelesKezdete` date NOT NULL,
+  `KezelesVege` date NOT NULL,
   `Emlekezteto` date NOT NULL,
   `Megjegyzes` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
@@ -65,11 +67,11 @@ CREATE TABLE `gyogyszer_adatok` (
 -- A tábla adatainak kiíratása `gyogyszer_adatok`
 --
 
-INSERT INTO `gyogyszer_adatok` (`Id`, `Gyogyszer_nev`, `GyartoId`, `Kategoria`, `Adagolas`, `Kezelesi_idopont`, `Kezeles_idotartama`, `Emlekezteto`, `Megjegyzes`) VALUES
-(1, 'Algopyrin', 1, 'Láz - és fájdalomcsillapító', 'Napi max 2 ', 'Délben és este 7 órakor', 'Egy héten át', '2024-12-15', 'Ha a fájdalom nem múlik , az adagolás száma növelhető max 1 darabszámal'),
-(2, 'Covid oltás', 1, 'Injekció', '1 db', 'Emailben kapott időpontban', '10 perc', '2025-02-13', 'Maszkban jelenjen meg'),
-(3, 'string', 3, 'string', 'string', 'string', 'string', '2025-02-11', 'string'),
-(4, 'string', 1, 'string', 'string', 'string', 'string', '2025-02-11', 'string');
+INSERT INTO `gyogyszer_adatok` (`Id`, `Gyogyszer_nev`, `GyartoId`, `Kategoria`, `Adagolas`, `Kezelesi_idopont`, `KezelesKezdete`, `KezelesVege`, `Emlekezteto`, `Megjegyzes`) VALUES
+(1, 'Algopyrin', 1, 'Láz - és fájdalomcsillapító', 'Napi max 2 ', 'Délben és este 7 órakor', '0000-00-00', '0000-00-00', '2024-12-15', 'Ha a fájdalom nem múlik , az adagolás száma növelhető max 1 darabszámal'),
+(2, 'Covid oltás', 1, 'Injekció', '1 db', 'Emailben kapott időpontban', '0000-00-00', '0000-00-00', '2025-02-13', 'Maszkban jelenjen meg'),
+(3, 'asdasdasdas', 3, 'asdasd', 'dddd', 'sadasdasdsad', '0000-00-00', '0000-00-00', '2025-02-12', 'dddddddd'),
+(4, 'string', 1, 'string', 'string', 'string', '0000-00-00', '0000-00-00', '2025-02-11', 'string');
 
 -- --------------------------------------------------------
 
@@ -89,7 +91,8 @@ CREATE TABLE `orvosok` (
 
 INSERT INTO `orvosok` (`Id`, `Nev`, `Beosztas`) VALUES
 (1, 'Dr House', 'Vezér orvos'),
-(2, 'Richter Gedeon', 'Csontkovács');
+(2, 'Richter Gedeon', 'Csontkovács'),
+(3, 'Dr.Albán & Albánné', 'Főorvos(ok)');
 
 -- --------------------------------------------------------
 
@@ -189,7 +192,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT a táblához `gyarto`
 --
 ALTER TABLE `gyarto`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT a táblához `gyogyszer_adatok`
@@ -201,7 +204,7 @@ ALTER TABLE `gyogyszer_adatok`
 -- AUTO_INCREMENT a táblához `orvosok`
 --
 ALTER TABLE `orvosok`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT a táblához `receptek`
