@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace bee_healthy_backend.Models;
 
@@ -17,5 +18,6 @@ public partial class Receptek
 
     public virtual Orvosok Orvos { get; set; } = null!;
 
+    [JsonIgnore]
     public virtual User User { get; set; } = null!;
 }
