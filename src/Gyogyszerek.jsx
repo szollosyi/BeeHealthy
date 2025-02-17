@@ -5,7 +5,7 @@ export const Gyogyszerek = () => {
   const [gyogyszerek, setGyogyszerek] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/beehealthy')
+    axios.get('http://localhost:5000/beehealthy/')
       .then(response => setGyogyszerek(response.data))
       .catch(error => console.error('Hiba történt:', error));
   }, []);
