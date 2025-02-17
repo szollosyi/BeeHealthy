@@ -59,9 +59,6 @@ public partial class BeeHealthyContext : DbContext
                 .HasMaxLength(64)
                 .HasColumnName("Gyogyszer_nev");
             entity.Property(e => e.Kategoria).HasMaxLength(64);
-            entity.Property(e => e.KezelesIdotartama)
-                .HasMaxLength(64)
-                .HasColumnName("Kezeles_idotartama");
             entity.Property(e => e.KezelesiIdopont)
                 .HasMaxLength(64)
                 .HasColumnName("Kezelesi_idopont");

@@ -4,8 +4,8 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project>
   <PropertyGroup>
-    <_PublishTargetUrl>C:\Users\Vizsga\source\repos\bee_healthy_backend\bee_healthy_backend\bin\Release\net8.0\publish\</_PublishTargetUrl>
-    <History>True|2025-01-27T11:45:38.1577791Z;True|2025-01-27T12:45:34.7304236+01:00;True|2025-01-27T11:16:02.0127390+01:00;</History>
+    <_PublishTargetUrl>C:\Users\Vizsga\Documents\BeeHealthy-backend\bin\Release\net8.0\publish\</_PublishTargetUrl>
+    <History>True|2025-02-17T12:26:37.0162081Z;False|2025-02-17T13:23:33.0167269+01:00;True|2025-02-17T11:53:54.6570221+01:00;True|2025-01-27T12:45:38.1577791+01:00;True|2025-01-27T12:45:34.7304236+01:00;True|2025-01-27T11:16:02.0127390+01:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

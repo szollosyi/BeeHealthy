@@ -17,9 +17,6 @@ public partial class GyogyszerAdatok
 
     public string KezelesiIdopont { get; set; } = null!;
 
-    public DateTime KezelesKezdete { get; set; } 
-        
-    public DateTime KezelesVege { get; set; }
     public DateTime Emlekezteto { get; set; }
 
     public string Megjegyzes { get; set; } = null!;
