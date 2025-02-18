@@ -12,14 +12,15 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <StackPanel>
+            
             <Label>Felhasználónév:</Label>
-            <ComboBox x:Name="cbxFelhasznaloNev" SelectionChanged="cbxFelhasznaloNev_SelectionChanged"/>
+            <ComboBox x:Name="cbxFelhasznaloNev"/>
             <Label>Jelszó:</Label>
-            <PasswordBox x:Name="pbxJelszo1" Password="Titkos1"/>
+            <PasswordBox x:Name="pbxJelszo1"/>
             <Label>Jelszó még egyszer:</Label>
-            <PasswordBox x:Name="pbxJelszo2" Password="Titkos1"/>
+            <PasswordBox x:Name="pbxJelszo2"/>
             <Label>Teljes név:</Label>
-            <TextBox x:Name="tbxTeljesNev" Text="Új ember"/>
+            <TextBox x:Name="tbxTeljesNev"/>
             <Label>Email:</Label>
             <TextBox x:Name="tbxEmail"/>
             <Label>Jogosultság:</Label>
@@ -27,7 +28,7 @@
                 <ComboBoxItem Content="9"/>
                 <ComboBoxItem Content="1"/>
             </ComboBox>
-            <CheckBox x:Name="cbActive" Content="Aktív" IsChecked="True"/>
+            <CheckBox x:Name="cbActive" Content="Aktív"/>
             <Label>Profilkép</Label>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                 <Image x:Name="imgProfilkep"

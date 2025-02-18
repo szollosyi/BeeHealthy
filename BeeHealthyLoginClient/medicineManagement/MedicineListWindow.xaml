@@ -39,8 +39,6 @@
                                 Binding="{Binding Adagolas}"/>
                 <DataGridTextColumn Header="Kezelési időpont"
                                 Binding="{Binding KezelesiIdopont}"/>
-                <DataGridTextColumn Header="Kezelés időtartama"
-                                Binding="{Binding KezelesIdotartama}"/>
                 <DataGridTextColumn Header="Megjegyzés"
                                 Binding="{Binding Megjegyzes}"/>
             </DataGrid.Columns>

@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BeeHealthyLoginClient"
         mc:Ignorable="d"
-        Title="Bejelentkezés" Height="200" Width="300">
+        Title="Bejelentkezés" Height="200" Width="300"
+        Icon="image.png">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Margin" Value="5"/>
@@ -20,6 +21,11 @@
         </Style>
     </Window.Resources>
     <Grid>
+        <Grid Grid.Row="1" Margin="30">
+            <Grid.Background>
+                <ImageBrush ImageSource="image.png" Stretch="Uniform" Opacity="0.1" />
+            </Grid.Background>
+        </Grid>
         <StackPanel>
             <Label Content="Felhasználónév:"/>
             <TextBox x:Name="tbxFelhasznalonev"/>

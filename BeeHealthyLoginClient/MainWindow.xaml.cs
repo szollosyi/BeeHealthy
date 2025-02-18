@@ -66,6 +66,8 @@ namespace BeeHealthyLoginClient
             loginWindow.ShowDialog();
             if (uId != "")
             {
+                mitemOrvosok.IsEnabled = true;
+                mitemGyartok.IsEnabled = true;
                 mitemGyogyszerek.IsEnabled = true;
                 mitemFelhasznalok.IsEnabled = true;
                 mitemBejelentkezes.IsEnabled = false;
@@ -75,7 +77,7 @@ namespace BeeHealthyLoginClient
                 MessageBox.Show("Sikertelen bejelentkezés");
             }
         }
-
+        #region UserManagement
         private void UserListWindow(object sender, RoutedEventArgs e)
         {
             UserListWindow userlistWindow = new UserListWindow();
@@ -93,7 +95,9 @@ namespace BeeHealthyLoginClient
             EditUserWindow edituserWindow = new EditUserWindow();
             edituserWindow.ShowDialog();
         }
+        #endregion
 
+        #region MedicineManagement
         private void MedicineListWindow(object sender, RoutedEventArgs e)
         {
             MedicineListWindow medicineListWindow = new MedicineListWindow();
@@ -110,6 +114,46 @@ namespace BeeHealthyLoginClient
         {
             EditMedicineWindow editMedicineWindow = new EditMedicineWindow();
             editMedicineWindow.ShowDialog();
+        }
+        #endregion
+
+        #region OrvosManagement
+        private void OrvosListWindow(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void NewOrvosWindow(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EditOrvosWindow(object sender, RoutedEventArgs e)
+        {
+
+        }
+        #endregion
+
+        #region GyartoManagement
+        private void GyartoListWindow(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void NewGyartoWindow(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EditGyartoWindow(object sender, RoutedEventArgs e)
+        {
+
+        }
+        #endregion
+
+        private void ImageBrush_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

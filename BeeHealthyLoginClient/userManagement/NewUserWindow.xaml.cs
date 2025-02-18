@@ -1,4 +1,5 @@
 ﻿using bee_healthy_backend.Models;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -35,7 +36,17 @@ namespace BeeHealthyLoginClient.userManagement
 
         private void ImageSelect_Click(object sender, RoutedEventArgs e)
         {
+            OpenFileDialog ofd = new OpenFileDialog
+            {
+                Title = "Válassz profilképet",
+                Filter = "Képfájlok|*.jpg;*.jpeg;*.png;*.bmp"
+            };
 
+            if (ofd.ShowDialog() == true)
+            {
+                imgProfilkep.Source = new BitmapImage(new Uri(ofd.FileName, UriKind.Absolute));
+                tbProfilkep.Text = ofd.FileName;
+            }
         }
 
         private async void Mentes_Click(object sender, RoutedEventArgs e)

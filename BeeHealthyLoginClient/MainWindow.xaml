@@ -5,12 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BeeHealthyLoginClient"
         mc:Ignorable="d"
-        Title="BeeHealthy" Height="450" Width="800">
+        Title="BeeHealthy" Height="300" Width="400"
+        Icon="image.png">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="20"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <Grid Grid.Row="1" Margin="30">
+            <Grid.Background>
+                <ImageBrush ImageSource="image.png" Stretch="Uniform" Opacity="0.8" />
+            </Grid.Background>
+        </Grid>
         <Menu>
             <MenuItem Header="Bejelentkezés"
                       Click="OpenLoginWindow"
@@ -25,16 +31,43 @@
                 <MenuItem Header="Felhasználó módosítása/törlése"
                           Click="EditUserWindow"/>
             </MenuItem>
+            
             <MenuItem Header="Gyógyszerek" 
                       IsEnabled="False"
                       Name="mitemGyogyszerek">
                 <MenuItem Header="Gyógyszerek listázása"
-                        Click="MedicineListWindow"/>
+                      Click="MedicineListWindow"/>
                 <MenuItem Header="Gyógyszer rögzítése"
                       Click="NewMedicineWindow"/>
                 <MenuItem Header="Gyógyszer módosítása/törlése"
                       Click="EditMedicineWindow"/>
             </MenuItem>
+            
+            <MenuItem Header="Orvosok" 
+                      IsEnabled="False"
+                      Name="mitemOrvosok">
+                <MenuItem Header="Orvosok listázása"
+                      Click="OrvosListWindow"/>
+                <MenuItem Header="Orvos rögzítése"
+                      Click="NewOrvosWindow"/>
+                <MenuItem Header="Orvos módosítása/törlése"
+                      Click="EditOrvosWindow"/>
+            </MenuItem>
+            
+            <MenuItem Header="Gyártók" 
+                      IsEnabled="False"
+                      Name="mitemGyartok">
+                <MenuItem Header="Gyártók listázása"
+                      Click="GyartoListWindow"/>
+                <MenuItem Header="Gyártó rögzítése"
+                      Click="NewGyartoWindow"/>
+                <MenuItem Header="Gyártó módosítása/törlése"
+                      Click="EditGyartoWindow"/>
+            </MenuItem>
         </Menu>
+        <TextBlock Text="BeeHealthy" Foreground="Black" FontSize="24" FontWeight="ExtraBold"
+           VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="1"/>
+        <TextBlock Text="Admin felület" Foreground="Black" FontSize="24" FontWeight="ExtraBold"
+                   VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="1"/>
     </Grid>
 </Window>

@@ -9,8 +9,6 @@ public partial class GyogyszerAdatok
 
     public string GyogyszerNev { get; set; } = null!;
 
-    public string Marka { get; set; } = null!;
-
     public int GyartoId { get; set; }
 
     public string Kategoria { get; set; } = null!;
@@ -19,11 +17,11 @@ public partial class GyogyszerAdatok
 
     public string KezelesiIdopont { get; set; } = null!;
 
-    public string KezelesIdotartama { get; set; } = null!;
-
     public DateTime Emlekezteto { get; set; }
 
     public string Megjegyzes { get; set; } = null!;
 
-    public virtual Gyarto? Gyarto { get; set; } = null!;
+    public virtual Gyarto Gyarto { get; set; } = null!;
+
+    public virtual ICollection<Receptek> Recepteks { get; set; } = new List<Receptek>();
 }

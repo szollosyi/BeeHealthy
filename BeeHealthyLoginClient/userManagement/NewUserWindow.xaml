@@ -39,12 +39,12 @@
                        Text="Nincs kiválasztva"
                        VerticalAlignment="Center"
                        Margin="5"/>
-                <Button Content="Kép kiválasztása"
+            </StackPanel>
+            <Button Content="Kép kiválasztása"
                     Height="40"
                     Padding="10"
                     Click="ImageSelect_Click"
-                    Margin="5"/>
-            </StackPanel>
+                    Margin="5" Width="100" HorizontalAlignment="Left"/>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">

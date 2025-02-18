@@ -175,3 +175,5 @@ C:\Users\Vizsga\Documents\BeeHealthy-asztali\BeeHealthyLoginClient\obj\Debug\net
 C:\Users\Vizsga\Documents\BeeHealthy-asztali\BeeHealthyLoginClient\obj\Debug\net8.0-windows\BeeHealthyLoginClient.pdb
 C:\Users\Vizsga\Documents\BeeHealthy-asztali\BeeHealthyLoginClient\obj\Debug\net8.0-windows\BeeHealthyLoginClient.genruntimeconfig.cache
 C:\Users\Vizsga\Documents\BeeHealthy-asztali\BeeHealthyLoginClient\obj\Debug\net8.0-windows\ref\BeeHealthyLoginClient.dll
+C:\Users\Vizsga\Documents\BeeHealthy-asztali\BeeHealthyLoginClient\obj\Debug\net8.0-windows\BeeHealthyLoginClient_Content.g.cs
+C:\Users\Vizsga\Documents\BeeHealthy-asztali\BeeHealthyLoginClient\bin\Debug\net8.0-windows\image.png

@@ -52,10 +52,5 @@ namespace BeeHealthyLoginClient.userManagement
         {
             Close();
         }
-
-        private async void cbxFelhasznaloNev_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
-        }
     }
 }
