@@ -21,6 +21,8 @@ public partial class BeeHealthyContext : DbContext
 
     public virtual DbSet<Orvosok> Orvosoks { get; set; }
 
+    public virtual DbSet<Paciensek> Pacienseks { get; set; }
+
     public virtual DbSet<Receptek> Recepteks { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
@@ -59,6 +61,8 @@ public partial class BeeHealthyContext : DbContext
                 .HasMaxLength(64)
                 .HasColumnName("Gyogyszer_nev");
             entity.Property(e => e.Kategoria).HasMaxLength(64);
+            entity.Property(e => e.KezelesKezdete).HasColumnType("date");
+            entity.Property(e => e.KezelesVege).HasColumnType("date");
             entity.Property(e => e.KezelesiIdopont)
                 .HasMaxLength(64)
                 .HasColumnName("Kezelesi_idopont");
@@ -80,6 +84,25 @@ public partial class BeeHealthyContext : DbContext
             entity.Property(e => e.Nev).HasMaxLength(64);
         });
 
+        modelBuilder.Entity<Paciensek>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity.ToTable("paciensek");
+
+            entity.HasIndex(e => e.Taj, "taj").IsUnique();
+
+            entity.Property(e => e.Id)
+                .HasColumnType("int(11)")
+                .HasColumnName("id");
+            entity.Property(e => e.Nev)
+                .HasMaxLength(255)
+                .HasColumnName("nev");
+            entity.Property(e => e.Taj)
+                .HasMaxLength(11)
+                .HasColumnName("taj");
+        });
+
         modelBuilder.Entity<Receptek>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
@@ -90,12 +113,12 @@ public partial class BeeHealthyContext : DbContext
 
             entity.HasIndex(e => e.OrvosId, "OrvosId");
 
-            entity.HasIndex(e => e.UserId, "UserId");
+            entity.HasIndex(e => e.PaciensId, "PaciensId");
 
             entity.Property(e => e.Id).HasColumnType("int(11)");
             entity.Property(e => e.GyogyszerId).HasColumnType("int(11)");
             entity.Property(e => e.OrvosId).HasColumnType("int(11)");
-            entity.Property(e => e.UserId).HasColumnType("int(11)");
+            entity.Property(e => e.PaciensId).HasColumnType("int(11)");
 
             entity.HasOne(d => d.Gyogyszer).WithMany(p => p.Recepteks)
                 .HasForeignKey(d => d.GyogyszerId)
@@ -105,9 +128,9 @@ public partial class BeeHealthyContext : DbContext
                 .HasForeignKey(d => d.OrvosId)
                 .HasConstraintName("receptek_ibfk_3");
 
-            entity.HasOne(d => d.User).WithMany(p => p.Recepteks)
-                .HasForeignKey(d => d.UserId)
-                .HasConstraintName("receptek_ibfk_1");
+            entity.HasOne(d => d.Paciens).WithMany(p => p.Recepteks)
+                .HasForeignKey(d => d.PaciensId)
+                .HasConstraintName("receptek_ibfk_4");
         });
 
         modelBuilder.Entity<User>(entity =>

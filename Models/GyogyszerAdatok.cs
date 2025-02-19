@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
 
 namespace bee_healthy_backend.Models;
 
@@ -18,12 +17,15 @@ public partial class GyogyszerAdatok
 
     public string KezelesiIdopont { get; set; } = null!;
 
+    public DateTime KezelesKezdete { get; set; }
+
+    public DateTime KezelesVege { get; set; }
+
     public DateTime Emlekezteto { get; set; }
 
     public string Megjegyzes { get; set; } = null!;
 
-    [JsonIgnore]
-    public virtual Gyarto? Gyarto { get; set; } = null!;
-    [JsonIgnore]
+    public virtual Gyarto Gyarto { get; set; } = null!;
+
     public virtual ICollection<Receptek> Recepteks { get; set; } = new List<Receptek>();
 }
