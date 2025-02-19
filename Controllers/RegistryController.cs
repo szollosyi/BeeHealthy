@@ -31,7 +31,7 @@ namespace bee_healthy_backend.Controllers
                     await cx.Users.AddAsync(user);
                     await cx.SaveChangesAsync();
 
-                    Program.SendEmail(user.Email, "Regisztráció", $"https://localhost:7280/api/Registry?loginNev={user.LoginNev}&email={user.Email}");
+                    Program.SendEmail(user.Email, "Regisztráció", $"https://localhost:5001/api/Registry?loginNev={user.LoginNev}&email={user.Email}");
 
                     return Ok("Sikeres regisztráció. Fejezze be a regisztrációját az e-mail címére küldött link segítségével!");
                 }
