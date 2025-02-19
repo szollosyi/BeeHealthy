@@ -4,6 +4,7 @@ import { Kezdőlap } from './Kezdolap';
 import { Gyogyszerek } from './Gyogyszerek';
 import { NemTalalt } from './NemTalalt';
 import { Login } from './Login';
+import { Registratio } from './Registratio';
 
 export const App = () => {
   return (
@@ -29,10 +30,13 @@ export const App = () => {
               <li className="nav-item">
                 <Link className="nav-link" to="/gyogyszerek">Gyógyszerek</Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/registratio">Regisztráció</Link>
+              </li>
             </ul>
             <button 
-              className="btn btn-light ms-3">
-              <i className="bi bi-person-circle" style={{ fontSize: '24px' }}></i>
+              className="btn btn-light ms-3"> <Link className="nav-link" to="/login">
+              <i className="bi bi-person-circle" style={{ fontSize: '24px' }}></i></Link>
             </button>
           </div>
         </div>
@@ -43,6 +47,7 @@ export const App = () => {
           <Route path="/" element={<Kezdőlap />} />
           <Route path="/gyogyszerek" element={<Gyogyszerek />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/registratio" element={<Registratio />} />
           <Route path="*" element={<NemTalalt />} />
         </Routes>
       </div>

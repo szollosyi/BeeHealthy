@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState} from "react";
 import axios from "axios";
 import sha256 from "js-sha256";
 
@@ -21,7 +21,7 @@ export const Login = () => {
   const handleLogin = async () => {
     try {
       const saltResponse = await axios.post(
-        `http://localhost:5000/api/Login/GetSalt/${loginName}`
+        `http://localhost:5000/api/Login/SaltRequest/${loginName}`
       );
       const salt = saltResponse.data;
       const tmpHash = sha256(password + salt.toString());
