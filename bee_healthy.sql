@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Feb 17. 12:46
+-- Létrehozás ideje: 2025. Feb 19. 08:45
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -42,7 +42,8 @@ INSERT INTO `gyarto` (`Id`, `Nev`, `Cim`, `Leiras`) VALUES
 (1, 'Pfhizer', 'USA', 'Szuri'),
 (2, 'SANOFI', 'EU', 'Tabletták'),
 (3, 'probagyartonev', 'probagyartpcim', 'probagyartoleiras'),
-(4, 'Szputnyik', 'RU', 'Orosz szuri');
+(4, 'Szputnyik', 'RU', 'Orosz szuri'),
+(7, 'asdsadasdsad', 'striasdasdasdadasdng', 'sasdsadasdasdastring');
 
 -- --------------------------------------------------------
 
@@ -97,23 +98,27 @@ INSERT INTO `orvosok` (`Id`, `Nev`, `Beosztas`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Tábla szerkezet ehhez a táblához `paciensek`
+--
+
+CREATE TABLE `paciensek` (
+  `id` int(11) NOT NULL,
+  `nev` varchar(255) NOT NULL,
+  `taj` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Tábla szerkezet ehhez a táblához `receptek`
 --
 
 CREATE TABLE `receptek` (
   `Id` int(11) NOT NULL,
-  `UserId` int(11) NOT NULL,
+  `PaciensId` int(11) NOT NULL,
   `GyogyszerId` int(11) NOT NULL,
   `OrvosId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
-
---
--- A tábla adatainak kiíratása `receptek`
---
-
-INSERT INTO `receptek` (`Id`, `UserId`, `GyogyszerId`, `OrvosId`) VALUES
-(1, 1, 2, 1),
-(2, 15, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -167,13 +172,20 @@ ALTER TABLE `orvosok`
   ADD PRIMARY KEY (`Id`);
 
 --
+-- A tábla indexei `paciensek`
+--
+ALTER TABLE `paciensek`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `taj` (`taj`);
+
+--
 -- A tábla indexei `receptek`
 --
 ALTER TABLE `receptek`
   ADD PRIMARY KEY (`Id`),
-  ADD KEY `UserId` (`UserId`),
   ADD KEY `GyogyszerId` (`GyogyszerId`),
-  ADD KEY `OrvosId` (`OrvosId`);
+  ADD KEY `OrvosId` (`OrvosId`),
+  ADD KEY `PaciensId` (`PaciensId`);
 
 --
 -- A tábla indexei `user`
@@ -192,19 +204,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT a táblához `gyarto`
 --
 ALTER TABLE `gyarto`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT a táblához `gyogyszer_adatok`
 --
 ALTER TABLE `gyogyszer_adatok`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT a táblához `orvosok`
 --
 ALTER TABLE `orvosok`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT a táblához `paciensek`
+--
+ALTER TABLE `paciensek`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT a táblához `receptek`
@@ -232,9 +250,9 @@ ALTER TABLE `gyogyszer_adatok`
 -- Megkötések a táblához `receptek`
 --
 ALTER TABLE `receptek`
-  ADD CONSTRAINT `receptek_ibfk_1` FOREIGN KEY (`UserId`) REFERENCES `user` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `receptek_ibfk_2` FOREIGN KEY (`GyogyszerId`) REFERENCES `gyogyszer_adatok` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `receptek_ibfk_3` FOREIGN KEY (`OrvosId`) REFERENCES `orvosok` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `receptek_ibfk_3` FOREIGN KEY (`OrvosId`) REFERENCES `orvosok` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `receptek_ibfk_4` FOREIGN KEY (`PaciensId`) REFERENCES `paciensek` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
