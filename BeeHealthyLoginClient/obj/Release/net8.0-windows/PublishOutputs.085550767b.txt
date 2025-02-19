@@ -1,0 +1,6 @@
+C:\Users\Vizsga\Documents\BeeHealthy-asztali\BeeHealthyLoginClient\bin\Release\net8.0-windows\publish\image.png
+C:\Users\Vizsga\Documents\BeeHealthy-asztali\BeeHealthyLoginClient\bin\Release\net8.0-windows\publish\BeeHealthyLoginClient.exe
+C:\Users\Vizsga\Documents\BeeHealthy-asztali\BeeHealthyLoginClient\bin\Release\net8.0-windows\publish\BeeHealthyLoginClient.dll
+C:\Users\Vizsga\Documents\BeeHealthy-asztali\BeeHealthyLoginClient\bin\Release\net8.0-windows\publish\BeeHealthyLoginClient.deps.json
+C:\Users\Vizsga\Documents\BeeHealthy-asztali\BeeHealthyLoginClient\bin\Release\net8.0-windows\publish\BeeHealthyLoginClient.runtimeconfig.json
+C:\Users\Vizsga\Documents\BeeHealthy-asztali\BeeHealthyLoginClient\bin\Release\net8.0-windows\publish\BeeHealthyLoginClient.pdb

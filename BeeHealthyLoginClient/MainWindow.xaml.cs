@@ -1,4 +1,5 @@
-﻿using BeeHealthyLoginClient.medicineManagement;
+﻿using BeeHealthyLoginClient.Ablakok.orvosManagement;
+using BeeHealthyLoginClient.medicineManagement;
 using BeeHealthyLoginClient.userManagement;
 using System.Net.Http;
 using System.Security.Cryptography;
@@ -120,17 +121,20 @@ namespace BeeHealthyLoginClient
         #region OrvosManagement
         private void OrvosListWindow(object sender, RoutedEventArgs e)
         {
-
+            OrvosListWindow orvosListWindow = new OrvosListWindow();
+            orvosListWindow.ShowDialog();
         }
 
         private void NewOrvosWindow(object sender, RoutedEventArgs e)
         {
-
+            NewOrvosWindow newOrvosWindow = new NewOrvosWindow();
+            newOrvosWindow.ShowDialog();
         }
 
         private void EditOrvosWindow(object sender, RoutedEventArgs e)
         {
-
+            EditOrvosWindow editOrvosWindow = new EditOrvosWindow();
+            editOrvosWindow.ShowDialog();
         }
         #endregion
 
@@ -150,10 +154,5 @@ namespace BeeHealthyLoginClient
 
         }
         #endregion
-
-        private void ImageBrush_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
     }
 }

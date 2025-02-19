@@ -11,10 +11,10 @@ false
 TRACE;RELEASE;NET;NET8_0;NETCOREAPP
 C:\Users\Vizsga\Documents\BeeHealthy-asztali\BeeHealthyLoginClient\App.xaml
 8-90692049
-
-16522576247
+1-1527463529
+18-303698633
 198-1509178875
 LoginWindow.xaml;MainWindow.xaml;medicineManagement\EditMedicineWindow.xaml;medicineManagement\MedicineListWindow.xaml;medicineManagement\NewMedicineWindow.xaml;userManagement\EditUserWindow.xaml;userManagement\NewUserWindow.xaml;userManagement\UserListWindow.xaml;
 
-True
+False
 

@@ -1,57 +1,77 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup />
+  <PropertyGroup>
+    <_LastSelectedProfileId>C:\Users\Vizsga\Documents\BeeHealthy-asztali\BeeHealthyLoginClient\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
   <ItemGroup>
     <ApplicationDefinition Update="App.xaml">
       <SubType>Designer</SubType>
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Ablakok\orvosManagement\EditOrvosWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Ablakok\orvosManagement\NewOrvosWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Ablakok\orvosManagement\OrvosListWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="LoginWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="medicineManagement\EditMedicineWindow.xaml.cs">
+    <Compile Update="Ablakok\medicineManagement\EditMedicineWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="medicineManagement\MedicineListWindow.xaml.cs">
+    <Compile Update="Ablakok\medicineManagement\MedicineListWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="medicineManagement\NewMedicineWindow.xaml.cs">
+    <Compile Update="Ablakok\medicineManagement\NewMedicineWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="userManagement\UserListWindow.xaml.cs">
+    <Compile Update="Ablakok\userManagement\UserListWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="userManagement\EditUserWindow.xaml.cs">
+    <Compile Update="Ablakok\userManagement\EditUserWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="userManagement\NewUserWindow.xaml.cs">
+    <Compile Update="Ablakok\userManagement\NewUserWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Ablakok\orvosManagement\EditOrvosWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Ablakok\orvosManagement\NewOrvosWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Ablakok\orvosManagement\OrvosListWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="LoginWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="medicineManagement\EditMedicineWindow.xaml">
+    <Page Update="Ablakok\medicineManagement\EditMedicineWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="medicineManagement\MedicineListWindow.xaml">
+    <Page Update="Ablakok\medicineManagement\MedicineListWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="medicineManagement\NewMedicineWindow.xaml">
+    <Page Update="Ablakok\medicineManagement\NewMedicineWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="userManagement\EditUserWindow.xaml">
+    <Page Update="Ablakok\userManagement\EditUserWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="userManagement\NewUserWindow.xaml">
+    <Page Update="Ablakok\userManagement\NewUserWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="userManagement\UserListWindow.xaml">
+    <Page Update="Ablakok\userManagement\UserListWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
