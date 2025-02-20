@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace bee_healthy_backend.Models;
 
@@ -21,9 +22,12 @@ public partial class Receptek
 
     public string Adagolas { get; set; } = null!;
 
-    public virtual GyogyszerAdatok Gyogyszer { get; set; } = null!;
+    [JsonIgnore]
+    public virtual GyogyszerAdatok? Gyogyszer { get; set; } = null!;
 
-    public virtual Orvosok Orvos { get; set; } = null!;
+    [JsonIgnore]
+    public virtual Orvosok? Orvos { get; set; } = null!;
 
-    public virtual Paciensek Paciens { get; set; } = null!;
+    [JsonIgnore]
+    public virtual Paciensek? Paciens { get; set; } = null!;
 }
