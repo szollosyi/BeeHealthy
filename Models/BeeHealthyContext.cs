@@ -54,18 +54,11 @@ public partial class BeeHealthyContext : DbContext
             entity.HasIndex(e => e.GyartoId, "GyartoId");
 
             entity.Property(e => e.Id).HasColumnType("int(11)");
-            entity.Property(e => e.Adagolas).HasMaxLength(64);
-            entity.Property(e => e.Emlekezteto).HasColumnType("date");
             entity.Property(e => e.GyartoId).HasColumnType("int(11)");
             entity.Property(e => e.GyogyszerNev)
                 .HasMaxLength(64)
                 .HasColumnName("Gyogyszer_nev");
             entity.Property(e => e.Kategoria).HasMaxLength(64);
-            entity.Property(e => e.KezelesKezdete).HasColumnType("date");
-            entity.Property(e => e.KezelesVege).HasColumnType("date");
-            entity.Property(e => e.KezelesiIdopont)
-                .HasMaxLength(64)
-                .HasColumnName("Kezelesi_idopont");
             entity.Property(e => e.Megjegyzes).HasMaxLength(100);
 
             entity.HasOne(d => d.Gyarto).WithMany(p => p.GyogyszerAdatoks)
@@ -116,7 +109,17 @@ public partial class BeeHealthyContext : DbContext
             entity.HasIndex(e => e.PaciensId, "PaciensId");
 
             entity.Property(e => e.Id).HasColumnType("int(11)");
+            entity.Property(e => e.Adagolas).HasMaxLength(64);
             entity.Property(e => e.GyogyszerId).HasColumnType("int(11)");
+            entity.Property(e => e.KezelesKezdete)
+                .HasColumnType("date")
+                .HasColumnName("Kezeles_kezdete");
+            entity.Property(e => e.KezelesVege)
+                .HasColumnType("date")
+                .HasColumnName("Kezeles_vege");
+            entity.Property(e => e.KezelesiIdopont)
+                .HasMaxLength(64)
+                .HasColumnName("Kezelesi_idopont");
             entity.Property(e => e.OrvosId).HasColumnType("int(11)");
             entity.Property(e => e.PaciensId).HasColumnType("int(11)");
 
