@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Feb 20. 08:47
+-- Létrehozás ideje: 2025. Feb 20. 09:25
 -- Kiszolgáló verziója: 10.4.32-MariaDB
--- PHP verzió: 8.2.12
+-- PHP verzió: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Adatbázis: `bee_healthy`
 --
+CREATE DATABASE IF NOT EXISTS `bee_healthy` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `bee_healthy`;
 
 -- --------------------------------------------------------
 
