@@ -22,6 +22,4 @@ public partial class User
     public string Email { get; set; } = null!;
 
     public string ProfilePicturePath { get; set; } = null!;
-
-    public virtual ICollection<Receptek> Recepteks { get; set; } = new List<Receptek>();
 }

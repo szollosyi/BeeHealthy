@@ -13,15 +13,14 @@ public partial class GyogyszerAdatok
 
     public string Kategoria { get; set; } = null!;
 
-    public string Adagolas { get; set; } = null!;
-
-    public string KezelesiIdopont { get; set; } = null!;
-
-    public DateTime Emlekezteto { get; set; }
-
     public string Megjegyzes { get; set; } = null!;
 
     public virtual Gyarto Gyarto { get; set; } = null!;
 
     public virtual ICollection<Receptek> Recepteks { get; set; } = new List<Receptek>();
+
+    public override string ToString()
+    {
+        return $"Id: {Id}\nGyógyszerNév: {GyogyszerNev}\nGyártóId: {GyartoId}\nKategória: {Kategoria}\nMegjegyzés: {Megjegyzes}\nGyartó {Gyarto}";
+    }
 }

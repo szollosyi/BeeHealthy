@@ -35,10 +35,6 @@
                                 Binding="{Binding GyogyszerNev}"/>
                 <DataGridTextColumn Header="Kategória"
                                 Binding="{Binding Kategoria}"/>
-                <DataGridTextColumn Header="Adagolás"
-                                Binding="{Binding Adagolas}"/>
-                <DataGridTextColumn Header="Kezelési időpont"
-                                Binding="{Binding KezelesiIdopont}"/>
                 <DataGridTextColumn Header="Megjegyzés"
                                 Binding="{Binding Megjegyzes}"/>
             </DataGrid.Columns>

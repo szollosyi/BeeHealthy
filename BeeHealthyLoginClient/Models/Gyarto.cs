@@ -14,4 +14,9 @@ public partial class Gyarto
     public string Leiras { get; set; } = null!;
 
     public virtual ICollection<GyogyszerAdatok> GyogyszerAdatoks { get; set; } = new List<GyogyszerAdatok>();
+
+    public override string ToString()
+    {
+        return $"Id: {Id}\nNév: {Nev}\nCím: {Cim}\nLeírás: {Leiras}";
+    }
 }
