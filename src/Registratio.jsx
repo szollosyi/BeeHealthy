@@ -73,25 +73,17 @@ export const Registratio = () => {
         <h2>Regisztráció</h2>
             <input
               type="text"
-              name="loginNev"
-              placeholder="Felhasználónév"
-              value={formData.loginNev}
-              onChange={handleChange}
-              style={{ margin: "10px", padding: "10px", borderRadius: "5px", width: "80%" }}
-            />
-            <input
-              type="password"
-              name="jelszo"
-              placeholder="Jelszó"
-              value={formData.jelszo}
+              name="Name"
+              placeholder="Teljes név"
+              value={formData.Name}
               onChange={handleChange}
               style={{ margin: "10px", padding: "10px", borderRadius: "5px", width: "80%" }}
             />
             <input
               type="text"
-              name="Name"
-              placeholder="Teljes név"
-              value={formData.Name}
+              name="loginNev"
+              placeholder="Felhasználónév"
+              value={formData.loginNev}
               onChange={handleChange}
               style={{ margin: "10px", padding: "10px", borderRadius: "5px", width: "80%" }}
             />
@@ -103,6 +95,14 @@ export const Registratio = () => {
               onChange={handleChange}
               style={{ margin: "10px", padding: "10px", borderRadius: "5px", width: "80%" }}
             />
+            <input
+              type="password"
+              name="jelszo"
+              placeholder="Jelszó"
+              value={formData.jelszo}
+              onChange={handleChange}
+              style={{ margin: "10px", padding: "10px", borderRadius: "5px", width: "80%" }}
+            /><br />
             <button
               onClick={handleSubmit}
               style={{

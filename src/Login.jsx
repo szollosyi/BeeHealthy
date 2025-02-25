@@ -14,7 +14,7 @@ export const Login = () => {
     if (storedUser) {
       const parsedUser = JSON.parse(storedUser);
       setUser(parsedUser);
-      setAvatar(`http://images.balazska.nhely.hu/${parsedUser.profilePicturePath}`);
+      setAvatar(`http://fajlok.beehealthy.nhely.hu/${parsedUser.profilePicturePath}`);
     }
   }, []);
 
@@ -80,7 +80,7 @@ export const Login = () => {
         {user ? (
           <>
             <h2>Belépve: {user.name}</h2>
-            {avatar && <img src={avatar} width="60%" height="60%" alt="Avatar" style={{ marginTop: "20px", borderRadius: "50%" }} />}
+            {avatar && <img src={avatar} width="60%" height="60%" alt="Avatar" style={{ marginTop: "20px", borderRadius: "50%" }} />}<br />
             <button
               onClick={handleLogout}
               style={{

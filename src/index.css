@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Alapértelmezett világos mód */
+body {
+  background-color: white;
+  color: black;
+}
+
+/* Sötét mód */
+.dark body {
+  background-color: rgb(53, 53, 53);
+  color: white;
+}
+
+#fekete{
+  color: black
+}
