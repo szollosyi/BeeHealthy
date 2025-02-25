@@ -14,10 +14,14 @@ namespace BeeHealthyLoginClient.medicineManagement
         public static List<Gyarto> gyartok = new List<Gyarto>();
         public List<string> gyartonevek = new List<string>();
 
+
+        public static HashSet<string> kategoriak = new HashSet<string>();
+
         public NewMedicineWindow()
         {
             InitializeComponent();
             GetGyartok();
+            GetKategoriak();
             client = MainWindow.sharedClient;
             DataContext = this; // Binding beállítása
         }
@@ -58,22 +62,24 @@ namespace BeeHealthyLoginClient.medicineManagement
 
 
         // Kategóriák betöltése
-        private async Task LoadKategoriaData()
+      
+
+        private async void GetKategoriak()
         {
             try
             {
-                var response = await client.GetAsync($"api/GyogyszerAdatok/{MainWindow.uId}");
-                response.EnsureSuccessStatusCode();
-                var json = await response.Content.ReadAsStringAsync();
-                var kategoriak = JsonSerializer.Deserialize<List<GyogyszerAdatok>>(json);
-                MessageBox.Show(json);
-                cbxGyartoId.ItemsSource = kategoriak; // ComboBox betöltése
-                cbxGyartoId.DisplayMemberPath = "Kategoria"; // Mi jelenjen meg a listában
-                cbxGyartoId.SelectedValuePath = "Kategoria"; // Mi legyen a háttérérték
+                string url = $"{MainWindow.sharedClient.BaseAddress}api/GyogyszerAdatok/{MainWindow.uId}";
+                List<GyogyszerAdatok> result = await MainWindow.sharedClient.GetFromJsonAsync<List<GyogyszerAdatok>>(url);
+                if (result is not null)
+                {
+                    
+                    ((List<GyogyszerAdatok>)result).ForEach(h => kategoriak.Add(h.Kategoria));
+                    cbxKategoria.ItemsSource = kategoriak;
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Hiba a kategóriák betöltésekor: " + ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 
