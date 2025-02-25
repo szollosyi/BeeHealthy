@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BeeHealthyLoginClient")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+40f92c0aa48e7bfc72a4ab614d7a1a0e92d83866")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6d19ebd99a879efc093d53ceccfea74692f47b05")]
 [assembly: System.Reflection.AssemblyProductAttribute("BeeHealthyLoginClient")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BeeHealthyLoginClient")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

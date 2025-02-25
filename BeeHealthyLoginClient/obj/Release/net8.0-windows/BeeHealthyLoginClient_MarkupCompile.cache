@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Vizsga\Documents\BeeHealthy-asztali\BeeHealthyLoginClient\obj\Release\net8.0-windows\
+C:\Users\Vizsga\Documents\BeeHealthy\asztali\BeeHealthyLoginClient\obj\Release\net8.0-windows\
 BeeHealthyLoginClient
 none
 false
 TRACE;RELEASE;NET;NET8_0;NETCOREAPP
-C:\Users\Vizsga\Documents\BeeHealthy-asztali\BeeHealthyLoginClient\App.xaml
-8-90692049
+C:\Users\Vizsga\Documents\BeeHealthy\asztali\BeeHealthyLoginClient\App.xaml
+11-1723661554
 1-1527463529
-18-303698633
+22-875737765
 198-1509178875
-LoginWindow.xaml;MainWindow.xaml;medicineManagement\EditMedicineWindow.xaml;medicineManagement\MedicineListWindow.xaml;medicineManagement\NewMedicineWindow.xaml;userManagement\EditUserWindow.xaml;userManagement\NewUserWindow.xaml;userManagement\UserListWindow.xaml;
+Ablakok\medicineManagement\EditMedicineWindow.xaml;Ablakok\medicineManagement\MedicineListWindow.xaml;Ablakok\medicineManagement\NewMedicineWindow.xaml;Ablakok\orvosManagement\EditOrvosWindow.xaml;Ablakok\orvosManagement\NewOrvosWindow.xaml;Ablakok\orvosManagement\OrvosListWindow.xaml;Ablakok\userManagement\EditUserWindow.xaml;Ablakok\userManagement\NewUserWindow.xaml;Ablakok\userManagement\UserListWindow.xaml;LoginWindow.xaml;MainWindow.xaml;
 
-False
+True
 

@@ -1,6 +1,7 @@
 ﻿using bee_healthy_backend.Models;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
@@ -10,41 +11,51 @@ namespace BeeHealthyLoginClient.medicineManagement
     public partial class NewMedicineWindow : Window
     {
         public HttpClient? client;
+        public static List<Gyarto> gyartok = new List<Gyarto>();
+        public List<string> gyartonevek = new List<string>();
 
         public NewMedicineWindow()
         {
             InitializeComponent();
+            GetGyartok();
             client = MainWindow.sharedClient;
             DataContext = this; // Binding beállítása
-            Loaded += NewMedicineWindow_Loaded;
-        }
-
-        private async void NewMedicineWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-            await LoadGyartoData(); // Gyártók betöltése
-            await LoadKategoriaData(); // Kategóriák betöltése
         }
 
         // Gyártók betöltése
-        private async Task LoadGyartoData()
+        private static int LoadGyartoData(string gyartonev)
         {
-            
+            int aktId = -1;
+            foreach (Gyarto g in gyartok)
+            {
+                if(g.Nev == gyartonev)
+                {
+                    aktId = g.Id;
+                    break;
+                }
+            }
+            return aktId;
+        }
+
+        private async void GetGyartok()
+        {
             try
             {
-                var response = await client.GetAsync($"api/Gyarto/{MainWindow.uId}");
-                response.EnsureSuccessStatusCode();
-                var json = await response.Content.ReadAsStringAsync();
-                var gyartok = JsonSerializer.Deserialize<List<Gyarto>>(json);
-                MessageBox.Show(json);
-                cbxGyartoId.ItemsSource = gyartok.ToString(); // ComboBox betöltése
-                cbxGyartoId.DisplayMemberPath = "Nev"; // Mi jelenjen meg a listában
-                cbxGyartoId.SelectedValuePath = "Id"; // Mi legyen a háttérérték
+                string url = $"{MainWindow.sharedClient.BaseAddress}api/Gyarto/{MainWindow.uId}";
+                List<Gyarto> result = await MainWindow.sharedClient.GetFromJsonAsync<List<Gyarto>>(url);
+                if (result is not null)
+                {
+                    gyartok = (List<Gyarto>)result;
+                    gyartonevek = result.Select(g => g.Nev).ToList();
+                    cbxGyartoId.ItemsSource = gyartonevek;
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Hiba a gyártók betöltésekor: " + ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
+
 
         // Kategóriák betöltése
         private async Task LoadKategoriaData()
@@ -79,7 +90,7 @@ namespace BeeHealthyLoginClient.medicineManagement
                     GyogyszerAdatok newGyogyszer = new()
                     {
                         GyogyszerNev = tbxGyogyszerNev.Text,
-                        GyartoId = (int)cbxGyartoId.SelectedValue, // A kiválasztott gyártó ID-ja
+                        GyartoId = LoadGyartoData(cbxGyartoId.Text), // A kiválasztott gyártó ID-ja
                         Kategoria = cbxKategoria.Text,
                         Megjegyzes = tbxMegjegyzes.Text
                     };

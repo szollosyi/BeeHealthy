@@ -14,14 +14,10 @@
         <StackPanel>
             <Label>Gyógyszernév:</Label>
             <TextBox x:Name="tbxGyogyszerNev"/>
-            <Label>Gyártó Id:</Label>
-            <ComboBox x:Name="cbxGyartoId"
-                      DisplayMemberPath="Nev"
-                      SelectedValuePath="Id"/>
+            <Label>Gyártó:</Label>
+            <ComboBox x:Name="cbxGyartoId"/>
             <Label>Kategória:</Label>
-            <ComboBox x:Name="cbxKategoria"
-                      DisplayMemberPath="Kategoria"
-                      SelectedValuePath="Kategoria"/>
+            <ComboBox x:Name="cbxKategoria"/>
             <Label>Megjegyzés:</Label>
             <TextBox x:Name="tbxMegjegyzes"/>
         </StackPanel>
