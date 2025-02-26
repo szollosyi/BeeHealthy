@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BeeHealthyLoginClient.Ablakok.orvosManagement"
         mc:Ignorable="d"
-        Title="NewOrvosWindow" Height="450" Width="800">
+        Title="NewOrvosWindow" Height="200" Width="300">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <Label>Orvos neve:</Label>
+            <TextBox x:Name="tbxOrvosNev"/>
+            <Label>Orvos beosztása:</Label>
+            <ComboBox x:Name="cbxBeosztas"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Mentés" Margin="5" Padding="10" Click="Mentes"/>
+            <Button Content="Mésge" Margin="5" Padding="10" Click="Megse"/>
+        </StackPanel>
     </Grid>
 </Window>

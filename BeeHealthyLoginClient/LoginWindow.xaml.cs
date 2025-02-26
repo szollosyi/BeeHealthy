@@ -53,7 +53,8 @@ namespace BeeHealthyLoginClient
             };
             LoggedUser bejelentkezett =
                 JsonSerializer.Deserialize<LoggedUser>(content,options);
-            MessageBox.Show(bejelentkezett.Token);
+            //MessageBox.Show(bejelentkezett.Token);
+            MessageBox.Show("Sikeres bejelentkezés!");
 
             string[] darabok = content.Split('"');
             string tokenem = darabok[darabok.Length - 2];

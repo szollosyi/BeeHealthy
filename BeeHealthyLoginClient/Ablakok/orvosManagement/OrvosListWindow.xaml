@@ -5,8 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BeeHealthyLoginClient.Ablakok.orvosManagement"
         mc:Ignorable="d"
-        Title="OrvosListWindow" Height="450" Width="800">
+        Title="OrvosListWindow" Height="250" Width="400">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="btnBetoltes"
+        Content="Betöltés"
+        Click="btnBetoltes_Click"
+        Width="100"
+        Margin="10"/>
+        <DataGrid x:Name="dgMedicines"
+          Grid.Row="1"
+          AutoGenerateColumns="False"
+          CanUserAddRows="False"
+          CanUserDeleteRows="False"
+          CanUserReorderColumns="False"
+          CanUserResizeRows="False"
+          CanUserResizeColumns="False"
+          CanUserSortColumns="False"
+          IsReadOnly="True"
+          SelectionMode="Single"
+          SelectionUnit="FullRow"
+          Grid.RowSpan="2"
+          >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Név"
+                            Binding="{Binding Nev}"/>
+                <DataGridTextColumn Header="Beosztás"
+                            Binding="{Binding Beosztas}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
