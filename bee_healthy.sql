@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Feb 20. 09:25
+-- Létrehozás ideje: 2025. Feb 26. 09:17
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.0.30
 
@@ -44,7 +44,7 @@ INSERT INTO `gyarto` (`Id`, `Nev`, `Cim`, `Leiras`) VALUES
 (1, 'Richter Gedeon Nyrt.', 'Budapest, Gyömrői út 19-21.', 'Magyarország legnagyobb gyógyszergyártó vállalata, nemzetközi piacvezető.'),
 (2, 'Egis Gyógyszergyár Zrt.', 'Budapest, Keresztúri út 30-38.', 'Főként generikus készítményeket gyártó magyar vállalat.'),
 (3, 'Sanofi Aventis Zrt.', 'Budapest, Tó utca 1-5.', 'Francia központú multinacionális gyógyszercég magyarországi leányvállalata.'),
-(4, 'Teva Gyógyszergyár Zrt.', 'Debrecen, Pallagi út 13.', 'A világ egyik legnagyobb generikus gyógyszergyártója, jelentős magyarországi jelenléttel.'),
+(4, 'Teva Gyógyszergyár Zrt.', 'Debrecen, Pallagi út 13.', 'Az egyik legnagyobb generikus gyógyszergyártó, jelentős magyarországi jelenléttel.'),
 (5, 'Béres Gyógyszergyár Zrt.', 'Budapest, Mikoviny utca 2-4.', 'Vitaminokat és immunerősítő készítményeket gyártó magyar cég.'),
 (6, 'Chinoin Zrt.', 'Budapest, Tó utca 1-5.', 'A Sanofi-csoporthoz tartozó magyar gyógyszeripari vállalat.'),
 (7, 'Medi-Radiopharma Kft.', 'Érd, Diósdi út 24.', 'Sugárzó izotópokat és radiogyógyszereket fejlesztő magyar cég.'),
@@ -315,7 +315,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`Id`, `LoginNev`, `HASH`, `SALT`, `Name`, `PermissionId`, `Active`, `Email`, `ProfilePicturePath`) VALUES
 (1, 'kerenyir', 'd5fe0e517520122f1ab363b6b7ee9ae616e7ad393693ef00d81a7f287a79931a', 'Gm63C4jiWnYvfZfiKUu2cu8AHPNDj8NoHhtQn88yiJhyOunBNSd7tRoWo5wwqg9X', 'Kerényi Róbert', 9, 1, 'kerenyir@kkszki.hu', 'default.jpg'),
-(16, 'admin', '02853337260d08f15eeb704bea2b1e06affc6c3856dfd73f319ae5085fa29cfd', 'F6k6XzkIoZJIhoTsdnYzt3aKtGfpoyxBpEWgL1BofLOt6sQjWJbbODHV9fxA8j8F', 'Admin Admin', 9, 1, 'admin@admin.com', 'C:\\Users\\Vizsga\\Desktop\\hátterek\\Screenshot_20241126_104834_TikT'),
+(16, 'admin', '02853337260d08f15eeb704bea2b1e06affc6c3856dfd73f319ae5085fa29cfd', 'F6k6XzkIoZJIhoTsdnYzt3aKtGfpoyxBpEWgL1BofLOt6sQjWJbbODHV9fxA8j8F', 'Admin Admin', 9, 1, 'admin@admin.com', 'default.jpg'),
 (17, 'TBalazs', '58142a6b7cd5f2bdbc7c9867cab5810243ae93c555194a78fbe1a6963183f5a3', 'x0R5y8uKnR9E2YDPPUhSaj5dLUtAeeB9FZni82b2uX0QKlSJ49d12iPqfwfImFuF', 'Tisza Balázs', 9, 1, 'tiszab@kkszki.hu', 'C:\\Users\\Vizsga\\Desktop\\hátterek\\The Rock anão.jpg'),
 (18, 'SzIstvan', '0baf1a88448a80f8c107196ca7998a1649f6adb5a0c75051b3597de915e4e955', 'X1j2n3xPcuAWJKG9V2TLHmSF0AWQHgtNUWwoaqRpPrsuUTFwPOXLOrbdJ92aipZ7', 'Szőllősy István', 9, 1, 'szollosyi@kkszki.hu', 'C:\\Users\\Vizsga\\Desktop\\hátterek\\images (1).jpg'),
 (19, 'DZoltan', 'bf63e716be989bc375936e6b1831a288ddf94bc75512533175562f48381109f5', '289cJSpLZ59sE1U3C5fm0pPO4tLT1pF6gjm6f0LGIssCeGYE3sDGGDf7ZFeGQmWi', 'Dombai Zoltán', 9, 1, 'dombaiz@kkszki.hu', 'C:\\Users\\Vizsga\\Desktop\\hátterek\\plants vs zombies.jpg');
