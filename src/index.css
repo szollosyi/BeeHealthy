@@ -27,3 +27,12 @@ body {
 #fekete{
   color: black
 }
+
+:root {
+  --text-color: #212529; /* Világos mód: sötét szín */
+}
+
+body.dark-mode {
+  --text-color: #ffffff; /* Sötét mód: világos szín */
+}
+

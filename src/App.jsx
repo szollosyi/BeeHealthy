@@ -4,6 +4,9 @@ import { Kezdőlap } from './Kezdolap';
 import { Gyogyszerek } from './Gyogyszerek';
 import { NemTalalt } from './NemTalalt';
 import { Login } from './Login';
+import {Paciens} from './Paciens';
+import { Orvosok } from './Orvosok';
+import {Gyartok} from './Gyarto';
 import { Registratio } from './Registratio';
 import ReactSwitch from 'react-switch';  // Importáljuk a React Switch könyvtárat
 
@@ -79,6 +82,15 @@ export const App = () => {
                 <Link className="nav-link" to="/gyogyszerek">Gyógyszerek</Link>
               </li>
               <li className="nav-item">
+                <Link className="nav-link" to="/Paciens">Páciensek</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/Orvosok">Orvosok</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/Gyarto">Gyártók</Link>
+              </li>
+              <li className="nav-item">
                 <Link className="nav-link" to="/registratio">Regisztráció</Link>
               </li>
             </ul>
@@ -99,6 +111,9 @@ export const App = () => {
           <Route path="/" element={<Kezdőlap />} />
           <Route path="/gyogyszerek" element={<Gyogyszerek />} />
           <Route path="/login" element={<Login />} />
+          <Route path='/Paciens' element={<Paciens />} />
+          <Route path='/Orvosok' element={<Orvosok />} />
+          <Route path='/Gyarto' element={<Gyartok />} />
           <Route path="/registratio" element={<Registratio />} />
           <Route path="*" element={<NemTalalt />} />
         </Routes>
