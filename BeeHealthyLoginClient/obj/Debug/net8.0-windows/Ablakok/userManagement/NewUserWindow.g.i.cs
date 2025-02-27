@@ -125,8 +125,7 @@ namespace BeeHealthyLoginClient.userManagement {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BeeHealthyLoginClient;V1.0.0.0;component/ablakok/usermanagement/newuserwindow.xa" +
-                    "ml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BeeHealthyLoginClient;component/ablakok/usermanagement/newuserwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Ablakok\userManagement\NewUserWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

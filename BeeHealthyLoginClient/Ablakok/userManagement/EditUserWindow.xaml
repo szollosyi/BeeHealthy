@@ -14,10 +14,12 @@
         <StackPanel>
             
             <Label>Felhasználónév:</Label>
-            <ComboBox x:Name="cbxFelhasznaloNev"/>
-            <Label>Jelszó:</Label>
+            <ComboBox x:Name="cbxFelhasznaloNev" SelectionChanged="cbxFelhasznaloNev_SelectionChanged"/>
+            <Label>Felhasználónév:</Label>
+            <TextBox x:Name="tbxFelhasznaloNev"/>
+            <Label>Új jelszó:</Label>
             <PasswordBox x:Name="pbxJelszo1"/>
-            <Label>Jelszó még egyszer:</Label>
+            <Label>Új jelszó még egyszer:</Label>
             <PasswordBox x:Name="pbxJelszo2"/>
             <Label>Teljes név:</Label>
             <TextBox x:Name="tbxTeljesNev"/>
@@ -32,20 +34,20 @@
             <Label>Profilkép</Label>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                 <Image x:Name="imgProfilkep"
-               Width="100"
-               Height="100"
-               Stretch="UniformToFill"
-               Margin="5"/>
-                <TextBlock x:Name="tbProfilkep"
-                   Text="Nincs kiválasztva"
-                   VerticalAlignment="Center"
+                   Width="100"
+                   Height="100"
+                   Stretch="UniformToFill"
                    Margin="5"/>
-                <Button Content="Kép kiválasztása"
-                Height="40"
-                Padding="10"
-                Click="ImageSelect_Click"
-                Margin="5"/>
+                <TextBlock x:Name="tbProfilkep"
+                       Text="Nincs kiválasztva"
+                       VerticalAlignment="Center"
+                       Margin="5"/>
             </StackPanel>
+            <Button Content="Kép kiválasztása"
+                    Height="40"
+                    Padding="10"
+                    Click="ImageSelect_Click"
+                    Margin="5" Width="100" HorizontalAlignment="Left"/>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">

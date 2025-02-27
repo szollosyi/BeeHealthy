@@ -69,8 +69,7 @@ namespace BeeHealthyLoginClient.Ablakok.orvosManagement {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BeeHealthyLoginClient;V1.0.0.0;component/ablakok/orvosmanagement/orvoslistwindow" +
-                    ".xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BeeHealthyLoginClient;component/ablakok/orvosmanagement/orvoslistwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Ablakok\orvosManagement\OrvosListWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

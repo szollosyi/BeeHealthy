@@ -69,8 +69,8 @@ namespace BeeHealthyLoginClient.medicineManagement {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BeeHealthyLoginClient;V1.0.0.0;component/ablakok/medicinemanagement/medicinelist" +
-                    "window.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BeeHealthyLoginClient;component/ablakok/medicinemanagement/medicinelistwindow.xa" +
+                    "ml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Ablakok\medicineManagement\MedicineListWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

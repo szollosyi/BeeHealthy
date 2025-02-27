@@ -69,8 +69,7 @@ namespace BeeHealthyLoginClient.userManagement {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BeeHealthyLoginClient;V1.0.0.0;component/ablakok/usermanagement/userlistwindow.x" +
-                    "aml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BeeHealthyLoginClient;component/ablakok/usermanagement/userlistwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Ablakok\userManagement\UserListWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
