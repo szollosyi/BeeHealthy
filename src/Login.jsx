@@ -14,7 +14,7 @@ export const Login = () => {
     if (storedUser) {
       const parsedUser = JSON.parse(storedUser);
       setUser(parsedUser);
-      setAvatar(`http://fajlok.beehealthy.nhely.hu/${parsedUser.profilePicturePath}`);
+      setAvatar(`${parsedUser.profilePicturePath}`);
     }
   }, []);
 
@@ -34,8 +34,9 @@ export const Login = () => {
         let userData = loginResponse.data;
         localStorage.setItem("felhasz", JSON.stringify(userData));
         setUser(userData);
-        setAvatar(`http://images.balazska.nhely.hu/${userData.profilePicturePath}`);
+        setAvatar(`${userData.profilePicturePath}`);
         alert(`Sikeres bejelentkezés! Felhasználó: ${userData.name}`);
+        window.location.reload();
       } else {
         alert("Hiba történt a bejelentkezéskor!");
       }

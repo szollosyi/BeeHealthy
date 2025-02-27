@@ -7,6 +7,7 @@ import { Login } from './Login';
 import {Paciens} from './Paciens';
 import { Orvosok } from './Orvosok';
 import {Gyartok} from './Gyarto';
+import {Receptek } from './Receptek';
 import { Registratio } from './Registratio';
 import ReactSwitch from 'react-switch';  // Importáljuk a React Switch könyvtárat
 
@@ -91,6 +92,9 @@ export const App = () => {
                 <Link className="nav-link" to="/Gyarto">Gyártók</Link>
               </li>
               <li className="nav-item">
+                <Link className="nav-link" to="/Receptek">Receptek</Link>
+              </li>
+              <li className="nav-item">
                 <Link className="nav-link" to="/registratio">Regisztráció</Link>
               </li>
             </ul>
@@ -114,6 +118,7 @@ export const App = () => {
           <Route path='/Paciens' element={<Paciens />} />
           <Route path='/Orvosok' element={<Orvosok />} />
           <Route path='/Gyarto' element={<Gyartok />} />
+          <Route path='/Receptek' element={<Receptek />} />
           <Route path="/registratio" element={<Registratio />} />
           <Route path="*" element={<NemTalalt />} />
         </Routes>

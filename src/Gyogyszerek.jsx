@@ -16,30 +16,35 @@ export const Gyogyszerek = () => {
   }, []);
 
   return (
-    <div className="max-w-6xl mx-auto p-6">
-  <h1 className="text-3xl font-bold mb-6 text-center text-blue-700 dark:text-blue-400">
-    Gyógyszerek listája
-  </h1>
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    {gyogyszerek.map(gyogyszer => (
-      <div
-        key={gyogyszer.Id}
-        className="bg-white p-5 rounded-lg shadow-lg border border-gray-300 dark:bg-gray-800 dark:border-gray-600"
-      >
-        <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100" id='fekete'>
-         {gyogyszer.gyogyszerNev}
-        </h2>
-        <p className="text-gray-600 mt-2 dark:text-gray-300">
-          <strong className="text-black dark:text-white">Kategória: {gyogyszer.kategoria}</strong>
-        </p>
-        <p className="text-gray-500 italic text-sm dark:text-gray-400">
-          <strong className="text-black dark:text-white">Megjegyzés: {gyogyszer.megjegyzes}</strong>
-        </p>
-      </div>
-    ))}
-  </div>
-</div>
+    <div className="container py-5">
+      <h1 className="text-center text-primary fw-bold mb-4">
+        <i className="bi bi-capsule-pill"></i> Gyógyszerek listája
+      </h1>
+      <div className="row g-4">
+        {gyogyszerek.map((gyogyszer) => (
+          <div key={gyogyszer.Id} className="col-md-6 col-lg-4">
+            <div className="card border-0 shadow-lg rounded-lg">
+              <div className="card-body p-4 text-center">
+                {/* Gyógyszer neve */}
+                <h4 className="card-title text-dark fw-bold">
+                  <i className="bi bi-capsule"></i> {gyogyszer.gyogyszerNev}
+                </h4>
 
+                {/* Kategória badge */}
+                <span className="badge bg-info text-white fs-6 px-3 py-2 my-2">
+                  <i className="bi bi-tags"></i> {gyogyszer.kategoria}
+                </span>
+
+                {/* Megjegyzés */}
+                <p className="text-muted fst-italic mt-3">
+                  <i className="bi bi-chat-left-text"></i> {gyogyszer.megjegyzes}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
-}
+};
 
