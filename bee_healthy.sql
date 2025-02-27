@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Feb 27. 11:51
+-- Létrehozás ideje: 2025. Feb 27. 12:02
 -- Kiszolgáló verziója: 10.4.32-MariaDB
--- PHP verzió: 8.2.12
+-- PHP verzió: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,7 +44,7 @@ INSERT INTO `gyarto` (`Id`, `Nev`, `Cim`, `Leiras`) VALUES
 (1, 'Richter Gedeon Nyrt.', 'Budapest, Gyömrői út 19-21.', 'Magyarország legnagyobb gyógyszergyártó vállalata, nemzetközi piacvezető.'),
 (2, 'Egis Gyógyszergyár Zrt.', 'Budapest, Keresztúri út 30-38.', 'Főként generikus készítményeket gyártó magyar vállalat.'),
 (3, 'Sanofi Aventis Zrt.', 'Budapest, Tó utca 1-5.', 'Francia központú multinacionális gyógyszercég magyarországi leányvállalata.'),
-(4, 'Teva Gyógyszergyár Zrt.', 'Debrecen, Pallagi út 13.', 'A világ egyik legnagyobb generikus gyógyszergyártója, jelentős magyarországi jelenléttel.'),
+(4, 'Teva Gyógyszergyár Zrt.', 'Debrecen, Pallagi út 13.', 'A világ legnagyobb gyógyszergyártója, jelentős magyarországi jelenléttel.'),
 (5, 'Béres Gyógyszergyár Zrt.', 'Budapest, Mikoviny utca 2-4.', 'Vitaminokat és immunerősítő készítményeket gyártó magyar cég.'),
 (6, 'Chinoin Zrt.', 'Budapest, Tó utca 1-5.', 'A Sanofi-csoporthoz tartozó magyar gyógyszeripari vállalat.'),
 (7, 'Medi-Radiopharma Kft.', 'Érd, Diósdi út 24.', 'Sugárzó izotópokat és radiogyógyszereket fejlesztő magyar cég.'),
@@ -322,7 +322,7 @@ INSERT INTO `user` (`Id`, `LoginNev`, `HASH`, `SALT`, `Name`, `PermissionId`, `A
 (18, 'SzIstvan', '0baf1a88448a80f8c107196ca7998a1649f6adb5a0c75051b3597de915e4e955', 'X1j2n3xPcuAWJKG9V2TLHmSF0AWQHgtNUWwoaqRpPrsuUTFwPOXLOrbdJ92aipZ7', 'Szőllősy István', 9, 1, 'szollosyi@kkszki.hu', 'https://i.imgur.com/WenoDcj.png'),
 (19, 'DZoltan', 'bf63e716be989bc375936e6b1831a288ddf94bc75512533175562f48381109f5', '289cJSpLZ59sE1U3C5fm0pPO4tLT1pF6gjm6f0LGIssCeGYE3sDGGDf7ZFeGQmWi', 'Dombai Zoltán', 9, 1, 'dombaiz@kkszki.hu', 'https://i.imgur.com/WenoDcj.png'),
 (28, 'a', '21e5dc8d8d8c9b8262aba42806ce8b48a82091eeb9d6aaf3ea67782b2ce90d0a', 'AF4AqPOFgLbryfQY7yG3qYPfq8nhW3uOCZU6XRKswF3kQEVmgW1UXekmYuchxK4H', 'A A', 9, 1, 'a@a.a', 'https://i.imgur.com/jn9klZs.jpeg'),
-(29, 'b', '6ea74d23c02640b871f19a527bb29e1e0bf42462ecc89ff1609cd3faeb958646', 'Caoevi1T3WlFBs94Jc4uXcUvX89Vsxfno6mTFHfyzSZa0f6IOpLYT6zmZdV057ZT', 'B B', 9, 1, 'b@b.b', 'https://i.imgur.com/sLNqqea.jpeg');
+(29, 'b', '6ea74d23c02640b871f19a527bb29e1e0bf42462ecc89ff1609cd3faeb958646', 'Caoevi1T3WlFBs94Jc4uXcUvX89Vsxfno6mTFHfyzSZa0f6IOpLYT6zmZdV057ZT', 'B B', 9, 1, 'b@b.b', 'https://i.imgur.com/sLNqqea.jpg');
 
 --
 -- Indexek a kiírt táblákhoz
