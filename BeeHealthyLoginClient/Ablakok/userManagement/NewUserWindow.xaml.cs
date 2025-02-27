@@ -1,30 +1,20 @@
-﻿using bee_healthy_backend.Models;
-using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using bee_healthy_backend.Models;
+using Microsoft.Win32;
 
 namespace BeeHealthyLoginClient.userManagement
 {
-    /// <summary>
-    /// Interaction logic for NewUserWindow.xaml
-    /// </summary>
     public partial class NewUserWindow : Window
     {
         public HttpClient? client;
+
         public NewUserWindow()
         {
             InitializeComponent();
@@ -63,6 +53,9 @@ namespace BeeHealthyLoginClient.userManagement
                 string ujHash = MainWindow.CreateSHA256(MainWindow.CreateSHA256(pbxJelszo1.Password + salt));
                 try
                 {
+                    // Feltöltés a kiválasztott képhez
+                    string uploadedImageUrl = await UploadToImgurAlbumAsync(tbProfilkep.Text);
+
                     User newUser = new()
                     {
                         Id = 0,
@@ -70,11 +63,12 @@ namespace BeeHealthyLoginClient.userManagement
                         Name = tbxTeljesNev.Text,
                         Salt = salt,
                         Hash = ujHash,
-                        PermissionId = 9, //(int)cbxPermission.SelectedValue,
+                        PermissionId = 9,
                         Active = cbActive.IsChecked == true,
                         Email = tbxEmail.Text,
-                        ProfilePicturePath = tbProfilkep.Text
+                        ProfilePicturePath = uploadedImageUrl
                     };
+
                     string toSend = JsonSerializer.Serialize(newUser, JsonSerializerOptions.Default);
                     var content = new StringContent(toSend, Encoding.UTF8, "application/json");
                     var response = await client.PostAsync($"api/User/{MainWindow.uId}?token={MainWindow.uId}", content);
@@ -95,6 +89,40 @@ namespace BeeHealthyLoginClient.userManagement
         private void Megse_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private async Task<string> UploadToImgurAlbumAsync(string filePath)
+        {
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    // OAuth2 Access Token használata
+                    client.DefaultRequestHeaders.Add("Authorization", "Bearer 34e6c6dcaac12ef2d53cfc016f86a94bb989fb9e");
+
+                    var content = new MultipartFormDataContent();
+                    var fileBytes = await File.ReadAllBytesAsync(filePath);
+                    var fileContent = new ByteArrayContent(fileBytes);
+                    content.Add(fileContent, "image");
+                    content.Add(new StringContent("2OzuMeu"), "album"); // Az album ID (profilk-pek album)
+
+                    var response = await client.PostAsync("https://api.imgur.com/3/upload", content);
+                    var jsonResponse = await response.Content.ReadAsStringAsync();
+
+                    var responseObject = JsonSerializer.Deserialize<JsonElement>(jsonResponse);
+                    if (responseObject.TryGetProperty("data", out var data) && data.TryGetProperty("link", out var link))
+                    {
+                        string imgurUrl = link.GetString() ?? "default.jpg";
+                        MessageBox.Show($"Sikeres feltöltés!\nKép elérhetősége: {imgurUrl}");
+                        return imgurUrl;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hiba történt a kép feltöltésekor: {ex.Message}");
+            }
+            return "default.jpg";
         }
     }
 }
