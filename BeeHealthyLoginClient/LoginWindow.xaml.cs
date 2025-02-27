@@ -30,30 +30,41 @@ namespace BeeHealthyLoginClient
 
         private async void btnBejelentkezes_Click(object sender, RoutedEventArgs e)
         {
-            var response = await client.PostAsync($"api/Login/SaltRequest/{tbxFelhasznalonev.Text}", 
+            var response = await client.PostAsync($"api/Login/SaltRequest/{tbxFelhasznalonev.Text}",
                 new StringContent(tbxFelhasznalonev.Text, Encoding.UTF8, "text/plain"));
-            string salt = await response.Content.ReadAsStringAsync();
-            //MessageBox.Show(salt);
 
+            if (!response.IsSuccessStatusCode)
+            {
+                MessageBox.Show("Hibás felhasználónév/jelszó!");
+                return;
+            }
+
+            string salt = await response.Content.ReadAsStringAsync();
             string tmpHash = MainWindow.CreateSHA256(tbxJelszo.Password + salt);
-            //MessageBox.Show(tmpHash);
-            LoginDTO dtoUser = new LoginDTO() {
+
+            LoginDTO dtoUser = new LoginDTO()
+            {
                 LoginName = tbxFelhasznalonev.Text,
                 TmpHash = tmpHash
             };
 
-            string felhAdatok = JsonSerializer.Serialize(dtoUser, JsonSerializerOptions.Default);
+            string felhAdatok = JsonSerializer.Serialize(dtoUser);
             var body = new StringContent(felhAdatok, Encoding.UTF8, "application/json");
             var valasz = await client.PostAsync("api/Login", body);
+
+            if (!valasz.IsSuccessStatusCode)
+            {
+                MessageBox.Show("Hibás felhasználónév/jelszó!");
+                return;
+            }
+
             var content = await valasz.Content.ReadAsStringAsync();
-            //MessageBox.Show(content);
             JsonSerializerOptions options = new JsonSerializerOptions()
             {
                 PropertyNameCaseInsensitive = true
             };
-            LoggedUser bejelentkezett =
-                JsonSerializer.Deserialize<LoggedUser>(content,options);
-            //MessageBox.Show(bejelentkezett.Token);
+
+            LoggedUser bejelentkezett = JsonSerializer.Deserialize<LoggedUser>(content, options);
             MessageBox.Show("Sikeres bejelentkezés!");
 
             string[] darabok = content.Split('"');
