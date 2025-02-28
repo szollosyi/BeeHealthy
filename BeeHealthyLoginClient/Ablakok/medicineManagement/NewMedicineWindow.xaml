@@ -15,9 +15,9 @@
             <Label>Gyógyszernév:</Label>
             <TextBox x:Name="tbxGyogyszerNev"/>
             <Label>Gyártó:</Label>
-            <ComboBox x:Name="cbxGyartoId"/>
+            <ComboBox x:Name="cbxGyartoId" IsEditable="True"/>
             <Label>Kategória:</Label>
-            <ComboBox x:Name="cbxKategoria"/>
+            <ComboBox x:Name="cbxKategoria" IsEditable="True"/>
             <Label>Megjegyzés:</Label>
             <TextBox x:Name="tbxMegjegyzes"/>
         </StackPanel>

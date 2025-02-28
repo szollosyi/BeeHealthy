@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BeeHealthyLoginClient.medicineManagement"
         mc:Ignorable="d"
-        Title="EditMedicineWindow" Height="425" Width="500">
+        Title="EditMedicineWindow" Height="300" Width="500">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -14,16 +14,10 @@
         <StackPanel>
             <Label>Gyógyszernév:</Label>
             <TextBox x:Name="tbxGyogyszerNev"/>
-            <Label>Gyártó Id:</Label>
-            <ComboBox x:Name="cbxGyartoId"/>
+            <Label>Gyártó:</Label>
+            <ComboBox x:Name="cbxGyartoId" IsEditable="True"/>
             <Label>Kategória:</Label>
-            <TextBox x:Name="tbxKategoria"/>
-            <Label>Adagolás:</Label>
-            <TextBox x:Name="tbxAdagolas"/>
-            <Label>Kezelési időpont:</Label>
-            <TextBox x:Name="tbxKezelesiIdopont"/>
-            <Label>Kezelés időtartama:</Label>
-            <DatePicker x:Name="DprKezelesIdo"/>
+            <ComboBox x:Name="cbxKategoria" IsEditable="True"/>
             <Label>Megjegyzés:</Label>
             <TextBox x:Name="tbxMegjegyzes"/>
         </StackPanel>

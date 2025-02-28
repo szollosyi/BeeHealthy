@@ -15,7 +15,7 @@
             <Label>Orvos neve:</Label>
             <TextBox x:Name="tbxOrvosNev"/>
             <Label>Orvos beosztása:</Label>
-            <ComboBox x:Name="cbxBeosztas"/>
+            <ComboBox x:Name="cbxBeosztas" IsEditable="True"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Content="Mentés" Margin="5" Padding="10" Click="Mentes"/>

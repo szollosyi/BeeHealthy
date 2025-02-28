@@ -14,7 +14,7 @@
         <StackPanel>
             
             <Label>Felhasználónév:</Label>
-            <ComboBox x:Name="cbxFelhasznaloNev" SelectionChanged="cbxFelhasznaloNev_SelectionChanged"/>
+            <ComboBox x:Name="cbxFelhasznaloNev" SelectionChanged="cbxFelhasznaloNev_SelectionChanged" IsEditable="True"/>
             <Label>Felhasználónév:</Label>
             <TextBox x:Name="tbxFelhasznaloNev"/>
             <Label>Új jelszó:</Label>

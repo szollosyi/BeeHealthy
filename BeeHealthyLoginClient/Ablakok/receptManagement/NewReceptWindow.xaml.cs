@@ -5,55 +5,43 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace BeeHealthyLoginClient.Ablakok.receptManagement
 {
-    /// <summary>
-    /// Interaction logic for NewReceptWindow.xaml
-    /// </summary>
     public partial class NewReceptWindow : Window
     {
-        public HttpClient? client;
+        public HttpClient client;
 
-        public static HashSet<string> tajszamok = new HashSet<string>();
-        public static HashSet<string> paciensek = new HashSet<string>();
-        public static HashSet<string> gyogyszerek = new HashSet<string>();
-        public static HashSet<string> orvosok = new HashSet<string>();
-
-        // Lista a Paciensek objektumok tárolására
         private List<Paciensek> paciensLista = new();
+        private List<GyogyszerAdatok> gyogyszerLista = new();
+        private List<Orvosok> orvosLista = new();
+        public static HashSet<string> tajszamok = new HashSet<string>();
 
         public NewReceptWindow()
         {
             InitializeComponent();
-            GetTaj();
+            client = MainWindow.sharedClient ?? new HttpClient(); // Biztosítjuk, hogy legyen egy HttpClient példány
             GetPaciensek();
             GetGyogyszerek();
             GetOrvosok();
+            GetTaj();
         }
 
-        #region Paciensek
-        #region Tajszamok
         private async void GetTaj()
         {
             try
             {
-                string url = $"{MainWindow.sharedClient.BaseAddress}api/Paciensek/{MainWindow.uId}";
-                List<Paciensek> result = await MainWindow.sharedClient.GetFromJsonAsync<List<Paciensek>>(url);
+                string url = $"{MainWindow.sharedClient?.BaseAddress}api/Paciensek/{MainWindow.uId}";
+                List<Paciensek> result = await client.GetFromJsonAsync<List<Paciensek>>(url); // Használjuk a client-et
                 if (result is not null)
                 {
-                    paciensLista = result; // A paciensek objektumok elmentése
+                    paciensLista = result;
                     tajszamok.Clear();
-                    result.ForEach(h => tajszamok.Add(h.Taj)); // Csak a TAJ számokat tároljuk itt
+                    result.ForEach(h => tajszamok.Add(h.Taj));
                     cbxTajSzam.ItemsSource = tajszamok;
                 }
             }
@@ -62,20 +50,19 @@ namespace BeeHealthyLoginClient.Ablakok.receptManagement
                 MessageBox.Show(ex.Message);
             }
         }
-        #endregion
 
-        #region Paciensnevek
         private async void GetPaciensek()
         {
             try
             {
-                string url = $"{MainWindow.sharedClient.BaseAddress}api/Paciensek/{MainWindow.uId}";
-                List<Paciensek> result = await MainWindow.sharedClient.GetFromJsonAsync<List<Paciensek>>(url);
+                string url = $"{MainWindow.sharedClient?.BaseAddress}api/Paciensek/{MainWindow.uId}";
+                List<Paciensek> result = await client.GetFromJsonAsync<List<Paciensek>>(url); // Használjuk a client-et
                 if (result is not null)
                 {
-                    paciensek.Clear();
-                    result.ForEach(h => paciensek.Add(h.Nev));
-                    cbxPaciens.ItemsSource = paciensek;
+                    paciensLista = result;
+                    cbxPaciens.ItemsSource = paciensLista;
+                    cbxPaciens.DisplayMemberPath = "Nev";
+                    cbxPaciens.SelectedValuePath = "Id";
                 }
             }
             catch (Exception ex)
@@ -83,21 +70,24 @@ namespace BeeHealthyLoginClient.Ablakok.receptManagement
                 MessageBox.Show(ex.Message);
             }
         }
-        #endregion
-        #endregion
 
-        #region Gyógyszerek
+        private int LoadPaciensekData(string paciensnev)
+        {
+            return paciensLista.FirstOrDefault(p => p.Nev == paciensnev)?.Id ?? -1;
+        }
+
         private async void GetGyogyszerek()
         {
             try
             {
-                string url = $"{MainWindow.sharedClient.BaseAddress}api/GyogyszerAdatok/{MainWindow.uId}";
-                List<GyogyszerAdatok> result = await MainWindow.sharedClient.GetFromJsonAsync<List<GyogyszerAdatok>>(url);
+                string url = $"{MainWindow.sharedClient?.BaseAddress}api/GyogyszerAdatok/{MainWindow.uId}";
+                List<GyogyszerAdatok> result = await client.GetFromJsonAsync<List<GyogyszerAdatok>>(url); // Használjuk a client-et
                 if (result is not null)
                 {
-                    gyogyszerek.Clear();
-                    result.ForEach(h => gyogyszerek.Add(h.GyogyszerNev));
-                    cbxGyogyszer.ItemsSource = gyogyszerek;
+                    gyogyszerLista = result;
+                    cbxGyogyszer.ItemsSource = gyogyszerLista;
+                    cbxGyogyszer.DisplayMemberPath = "GyogyszerNev";
+                    cbxGyogyszer.SelectedValuePath = "Id";
                 }
             }
             catch (Exception ex)
@@ -105,20 +95,24 @@ namespace BeeHealthyLoginClient.Ablakok.receptManagement
                 MessageBox.Show(ex.Message);
             }
         }
-        #endregion
 
-        #region Orvosok
+        private int LoadGyogyszerData(string gyogyszerNev)
+        {
+            return gyogyszerLista.FirstOrDefault(g => g.GyogyszerNev == gyogyszerNev)?.Id ?? -1;
+        }
+
         private async void GetOrvosok()
         {
             try
             {
-                string url = $"{MainWindow.sharedClient.BaseAddress}api/Orvos/{MainWindow.uId}";
-                List<Orvosok> result = await MainWindow.sharedClient.GetFromJsonAsync<List<Orvosok>>(url);
+                string url = $"{MainWindow.sharedClient?.BaseAddress}api/Orvos/{MainWindow.uId}";
+                List<Orvosok> result = await client.GetFromJsonAsync<List<Orvosok>>(url); // Használjuk a client-et
                 if (result is not null)
                 {
-                    orvosok.Clear();
-                    result.ForEach(h => orvosok.Add(h.Nev));
-                    cbxOrvos.ItemsSource = orvosok;
+                    orvosLista = result;
+                    cbxOrvos.ItemsSource = orvosLista;
+                    cbxOrvos.DisplayMemberPath = "Nev";
+                    cbxOrvos.SelectedValuePath = "Id";
                 }
             }
             catch (Exception ex)
@@ -126,11 +120,15 @@ namespace BeeHealthyLoginClient.Ablakok.receptManagement
                 MessageBox.Show(ex.Message);
             }
         }
-        #endregion
 
-        private void cbxTajSzam_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private int LoadOrvosData(string orvosNev)
         {
-            if (cbxTajSzam.SelectedItem is string selectedTaj) // Stringként kezeljük, mert a tajszamok stringeket tartalmaz
+            return orvosLista.FirstOrDefault(o => o.Nev == orvosNev)?.Id ?? -1;
+        }
+
+        private void cbxTajSzam_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cbxTajSzam.SelectedItem is string selectedTaj)
             {
                 Paciensek? paciens = paciensLista.FirstOrDefault(f => f.Taj == selectedTaj);
                 if (paciens != null)
@@ -140,12 +138,47 @@ namespace BeeHealthyLoginClient.Ablakok.receptManagement
             }
         }
 
-        private void Mentés(object sender, RoutedEventArgs e)
+        private async void Mentes(object sender, RoutedEventArgs e)
         {
-            // Implementáld a mentési logikát
+            if (cbxGyogyszer.SelectedValue != null &&
+                cbxOrvos.SelectedValue != null &&
+                cbxPaciens.SelectedValue != null &&
+                dpKezdet.Text != null &&
+                dpVeg.Text != null &&
+                !string.IsNullOrWhiteSpace(tbxAdagolas.Text) &&
+                !string.IsNullOrWhiteSpace(tbxKezelesiIdopont.Text)) // Ellenőrizzük a tbxKezelesiIdopont mezőt is
+            {
+                try
+                {
+                    Receptek newRecept = new()
+                    {
+                        PaciensId = (int)cbxPaciens.SelectedValue,
+                        GyogyszerId = (int)cbxGyogyszer.SelectedValue,
+                        OrvosId = (int)cbxOrvos.SelectedValue,
+                        KezelesKezdete = DateTime.Parse(dpKezdet.Text),
+                        KezelesVege = DateTime.Parse(dpVeg.Text),
+                        Adagolas = tbxAdagolas.Text,
+                        KezelesiIdopont = tbxKezelesiIdopont.Text
+                    };
+
+                    string toSend = JsonSerializer.Serialize(newRecept);
+                    var content = new StringContent(toSend, Encoding.UTF8, "application/json");
+                    var response = await client.PostAsync($"api/Receptek/{MainWindow.uId}?token={MainWindow.uId}", content); // Használjuk a client-et
+                    string rcontent = await response.Content.ReadAsStringAsync();
+                    MessageBox.Show(rcontent);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Mentési hiba: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Kitöltési hiba");
+            }
         }
 
-        private void Mégse(object sender, RoutedEventArgs e)
+        private void Megse(object sender, RoutedEventArgs e)
         {
             Close();
         }

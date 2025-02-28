@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BeeHealthyLoginClient.Ablakok.receptManagement"
         mc:Ignorable="d"
-        Title="NewReceptWindow" Height="450" Width="800">
+        Title="NewReceptWindow" Height="450" Width="350">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -13,13 +13,15 @@
         </Grid.RowDefinitions>
         <StackPanel>
             <Label>Taj szám:</Label>
-            <ComboBox x:Name="cbxTajSzam" SelectionChanged="cbxTajSzam_SelectionChanged"/>
+            <ComboBox x:Name="cbxTajSzam" SelectionChanged="cbxTajSzam_SelectionChanged" IsEditable="True"/>
             <Label>Páciens neve:</Label>
             <ComboBox x:Name="cbxPaciens" IsEnabled="False"/>
             <Label>Gyógyszer neve:</Label>
-            <ComboBox x:Name="cbxGyogyszer"/>
+            <ComboBox x:Name="cbxGyogyszer" IsEditable="True"/>
             <Label>Orvos neve:</Label>
-            <ComboBox x:Name="cbxOrvos"/>
+            <ComboBox x:Name="cbxOrvos" IsEditable="True"/>
+            <Label>Kezelési időpont:</Label>
+            <TextBox x:Name="tbxKezelesiIdopont"/>
             <StackPanel Orientation="Horizontal">
                 <StackPanel>
                     <Label>Kezelés kezdete:</Label>
@@ -35,8 +37,8 @@
             <TextBox x:Name="tbxAdagolas"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Content="Mentés" Margin="5" Padding="10" Click="Mentés"/>
-            <Button Content="Mésge" Margin="5" Padding="10" Click="Mégse"/>
+            <Button Content="Mentés" Margin="5" Padding="10" Click="Mentes"/>
+            <Button Content="Mésge" Margin="5" Padding="10" Click="Megse"/>
         </StackPanel>
     </Grid>
 </Window>
