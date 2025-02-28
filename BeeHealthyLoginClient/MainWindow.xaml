@@ -53,7 +53,9 @@
                 <MenuItem Header="Orvos módosítása/törlése"
                       Click="EditOrvosWindow"/>
             </MenuItem>
-            
+
+            <MenuItem Header="Új Recept" IsEnabled="False" Click="NewReceptWindow" Name="mitemReceptek"/>
+
             <MenuItem Header="Gyártók" 
                       IsEnabled="False"
                       Name="mitemGyartok">

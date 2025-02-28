@@ -1,4 +1,5 @@
 ﻿using BeeHealthyLoginClient.Ablakok.orvosManagement;
+using BeeHealthyLoginClient.Ablakok.receptManagement;
 using BeeHealthyLoginClient.medicineManagement;
 using BeeHealthyLoginClient.userManagement;
 using System.Net.Http;
@@ -71,6 +72,7 @@ namespace BeeHealthyLoginClient
                 mitemGyartok.IsEnabled = true;
                 mitemGyogyszerek.IsEnabled = true;
                 mitemFelhasznalok.IsEnabled = true;
+                mitemReceptek.IsEnabled = true;
                 mitemBejelentkezes.IsEnabled = false;
             }
             else
@@ -154,5 +156,11 @@ namespace BeeHealthyLoginClient
 
         }
         #endregion
+
+        private void NewReceptWindow(object sender, RoutedEventArgs e)
+        {
+            NewReceptWindow newReceptWindow = new NewReceptWindow();
+            newReceptWindow.ShowDialog();
+        }
     }
 }

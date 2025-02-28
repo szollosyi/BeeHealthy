@@ -12,5 +12,6 @@ public partial class Orvosok
 
     public string Beosztas { get; set; } = null!;
 
+    [JsonIgnore]
     public virtual ICollection<Receptek> Recepteks { get; set; } = new List<Receptek>();
 }
