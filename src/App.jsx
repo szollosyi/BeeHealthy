@@ -8,7 +8,7 @@ import {Paciens} from './Paciens';
 import { Orvosok } from './Orvosok';
 import {Gyartok} from './Gyarto';
 import {Receptek } from './Receptek';
-import { Registratio } from './Registratio';
+import { Registratio } from './Registration';
 import ReactSwitch from 'react-switch';  // Importáljuk a React Switch könyvtárat
 
 // Context létrehozása a sötét mód kezelésére

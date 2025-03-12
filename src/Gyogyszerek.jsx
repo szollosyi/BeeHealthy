@@ -21,8 +21,8 @@ export const Gyogyszerek = () => {
         <i className="bi bi-capsule-pill"></i> Gyógyszerek listája
       </h1>
       <div className="row g-4">
-        {gyogyszerek.map((gyogyszer) => (
-          <div key={gyogyszer.Id} className="col-md-6 col-lg-4">
+        {gyogyszerek.map((gyogyszer, index) => (
+          <div key={index} className="col-md-6 col-lg-4">
             <div className="card border-0 shadow-lg rounded-lg">
               <div className="card-body p-4 text-center">
                 {/* Gyógyszer neve */}
