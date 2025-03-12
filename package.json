@@ -7,7 +7,6 @@
     "@babel/preset-env": "^7.26.9",
     "@babel/preset-react": "^7.26.3",
     "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.8.1",
@@ -23,7 +22,8 @@
     "react-router-dom": "^7.3.0",
     "react-scripts": "5.0.1",
     "react-switch": "^7.1.0",
-    "text-encoding": "^0.7.0"
+    "text-encoding": "^0.7.0",
+    "util": "^0.12.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -53,7 +53,10 @@
     "testEnvironment": "jsdom",
     "moduleNameMapper": {
       "\\.css$": "<rootDir>/__mocks__/styleMock.js"
-    }
+    },
+    "setupFiles": [
+      "<rootDir>/jest.setup.js"
+    ]
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.6.3",
