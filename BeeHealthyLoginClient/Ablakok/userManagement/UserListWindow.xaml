@@ -39,7 +39,7 @@
                                     Binding="{Binding Email}"/>
                 <DataGridTextColumn Header="Jogosultsag"
                                     Binding="{Binding PermissionId}"/>
-                <DataGridTextColumn Header="Aktív"
+                <DataGridCheckBoxColumn Header="Aktív"
                                     Binding="{Binding Active}"/>
             </DataGrid.Columns>
         </DataGrid>

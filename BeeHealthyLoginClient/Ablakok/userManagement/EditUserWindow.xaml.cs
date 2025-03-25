@@ -21,118 +21,124 @@ namespace BeeHealthyLoginClient.userManagement
     public partial class EditUserWindow : Window
     {
         public HttpClient? client;
-        public static List<User> felhasznalok = new List<User>();
-        public List<string> felhasznalonevek = new List<string>();
+        private static List<User> users = new List<User>();
 
         public EditUserWindow()
         {
             InitializeComponent();
             client = MainWindow.sharedClient;
-            GetFelhasznalok();
-            DataContext = this;
-
-            //string currentDir = Directory.GetCurrentDirectory();
-            //imgProfilkep.Source = new BitmapImage(new Uri($"{currentDir}/Images/default.jpg", UriKind.Absolute));
-            //tbProfilkep.Text = "default.jpg";
         }
 
-        private async void GetFelhasznalok()
+        private async Task LoadUsers()
         {
             try
             {
-                string url = $"{MainWindow.sharedClient.BaseAddress}api/User/{MainWindow.uId}";
-                List<User> result = await MainWindow.sharedClient.GetFromJsonAsync<List<User>>(url);
-                if (result is not null)
-                {
-                    felhasznalok = result;
-                    felhasznalonevek = result.Select(f => f.LoginNev).ToList();
-                    cbxFelhasznaloNev.ItemsSource = felhasznalonevek;
-                }
+                string url = $"{client.BaseAddress}api/User/{MainWindow.uId}?uId={MainWindow.uId}";
+                users = await client.GetFromJsonAsync<List<User>>(url) ?? new List<User>();
+
+                // UI frissítése
+                dgUsers.ItemsSource = null;
+                dgUsers.ItemsSource = users;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Hiba történt: {ex.Message}");
+                MessageBox.Show($"Hiba történt a felhasználók betöltésekor: {ex.Message}");
             }
         }
 
-        private async Task LoadProfileImage(string imageUrl)
+        private async void btnBetoltes_Click(object sender, RoutedEventArgs e)
         {
-            try
+            await LoadUsers();
+        }
+
+        private async void Modositas_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgUsers.SelectedItem is User selectedUser)
             {
-                if (string.IsNullOrEmpty(imageUrl))
+                var result = MessageBox.Show($"Biztosan módosítod a {selectedUser.Name} nevű felhasználót?", "Megerősítés", MessageBoxButton.YesNo);
+
+                if (result == MessageBoxResult.Yes)
                 {
-                    imageUrl = "Images/default.jpg";
+                    try
+                    {
+                        string token = MainWindow.uId;
+                        string updateUrl = $"api/User/{token}";
+
+                        var updatedUser = new User
+                        {
+                            Id = selectedUser.Id,
+                            Name = selectedUser.Name,
+                            Email = selectedUser.Email,
+                            PermissionId = selectedUser.PermissionId,
+                            Hash = selectedUser.Hash ?? "",
+                            Salt = selectedUser.Salt ?? "",
+                            LoginNev = selectedUser.LoginNev ?? "defaultLogin",
+                            ProfilePicturePath = selectedUser.ProfilePicturePath ?? "default.jpg"
+                        };
+
+
+                        var response = await client.PutAsJsonAsync(updateUrl, updatedUser);
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            MessageBox.Show("Felhasználó sikeresen módosítva.");
+                            await LoadUsers();
+                        }
+                        else
+                        {
+                            string errorMsg = await response.Content.ReadAsStringAsync();
+                            MessageBox.Show($"Hiba történt: {response.StatusCode} - {errorMsg}");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Hiba a módosítás során: {ex.Message}");
+                    }
                 }
-                if (imageUrl.StartsWith("http"))
+            }
+            else
+            {
+                MessageBox.Show("Kérlek válassz ki egy felhasználót a módosításhoz!");
+            }
+        }
+
+        private async void Torles_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgUsers.SelectedItem is User selectedUser)
+            {
+                var result = MessageBox.Show($"Biztosan törlöd a {selectedUser.Name} nevű felhasználót?", "Megerősítés", MessageBoxButton.YesNo);
+
+                if (result == MessageBoxResult.Yes)
                 {
-                    using HttpClient client = new HttpClient();
-                    byte[] imageBytes = await client.GetByteArrayAsync(imageUrl);
-                    using MemoryStream ms = new MemoryStream(imageBytes);
-                    BitmapImage bitmap = new BitmapImage();
-                    bitmap.BeginInit();
-                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
-                    bitmap.StreamSource = ms;
-                    bitmap.EndInit();
-                    imgProfilkep.Source = bitmap;
-                }
-                else
-                {
-                    string currentDir = Directory.GetCurrentDirectory();
-                    string localPath = Path.Combine(currentDir, "Images", imageUrl);
-                    if (!File.Exists(localPath)) localPath = Path.Combine(currentDir, "Images/default.jpg");
-                    imgProfilkep.Source = new BitmapImage(new Uri(localPath, UriKind.Absolute));
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Hiba a kép betöltésekor: {ex.Message}");
-            }
-        }
+                    try
+                    {
+                        string token = MainWindow.uId; // Feltételezve, hogy az uId a token
+                        string deleteUrl = $"api/User/{token}, {selectedUser.Id}";
 
+                        var response = await client.DeleteAsync(deleteUrl);
 
-        private async void cbxFelhasznaloNev_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-            if (cbxFelhasznaloNev.SelectedItem is string selectedUser)
-            {
-                User? user = felhasznalok.FirstOrDefault(f => f.LoginNev == selectedUser);
-                if (user != null)
-                {
-                    tbxFelhasznaloNev.Text = user.LoginNev;
-                    tbxEmail.Text = user.Email;
-                    tbxTeljesNev.Text = user.Name;
-                    tbProfilkep.Text = user.ProfilePicturePath;
-                    cbxPermission.Text = user.PermissionId.ToString();
-                    cbActive.IsChecked = user.Active;
-                    await LoadProfileImage(user.ProfilePicturePath);
+                        if (response.IsSuccessStatusCode)
+                        {
+                            MessageBox.Show("Felhasználó sikeresen törölve.");
+                            await LoadUsers(); // Lista frissítése
+                        }
+                        else
+                        {
+                            string errorMsg = await response.Content.ReadAsStringAsync();
+                            MessageBox.Show($"Hiba történt: {response.StatusCode} - {errorMsg}");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Hiba a törlés során: {ex.Message}");
+                    }
                 }
             }
-        }
-
-        private void ImageSelect_Click(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog
+            else
             {
-                Title = "Válassz profilképet",
-                Filter = "Képfájlok|*.jpg;*.jpeg;*.png;*.bmp"
-            };
-
-            if (ofd.ShowDialog() == true)
-            {
-                imgProfilkep.Source = new BitmapImage(new Uri(ofd.FileName, UriKind.Absolute));
-                tbProfilkep.Text = ofd.FileName;
+                MessageBox.Show("Kérlek válassz ki egy felhasználót a törléshez!");
             }
         }
-
-        private void Modositas_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void Torles_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
 
 
         private void Megse_Click(object sender, RoutedEventArgs e)
@@ -140,21 +146,19 @@ namespace BeeHealthyLoginClient.userManagement
             Close();
         }
 
-
         private async Task<string> UploadToImgurAlbumAsync(string filePath)
         {
             try
             {
                 using (var client = new HttpClient())
                 {
-                    // OAuth2 Access Token használata
                     client.DefaultRequestHeaders.Add("Authorization", "Bearer 34e6c6dcaac12ef2d53cfc016f86a94bb989fb9e");
 
                     var content = new MultipartFormDataContent();
                     var fileBytes = await File.ReadAllBytesAsync(filePath);
                     var fileContent = new ByteArrayContent(fileBytes);
                     content.Add(fileContent, "image");
-                    content.Add(new StringContent("2OzuMeu"), "album"); // Az album ID (profilk-pek album)
+                    content.Add(new StringContent("2OzuMeu"), "album");
 
                     var response = await client.PostAsync("https://api.imgur.com/3/upload", content);
                     var jsonResponse = await response.Content.ReadAsStringAsync();
