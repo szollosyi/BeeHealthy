@@ -1,6 +1,7 @@
 ﻿using BeeHealthyLoginClient.Ablakok.orvosManagement;
 using BeeHealthyLoginClient.Ablakok.receptManagement;
 using BeeHealthyLoginClient.medicineManagement;
+using BeeHealthyLoginClient.orvosManagement;
 using BeeHealthyLoginClient.userManagement;
 using System.Net.Http;
 using System.Security.Cryptography;

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BeeHealthyLoginClient.userManagement"
         mc:Ignorable="d"
-        Title="EditUserWindow" Height="450" Width="800">
+        Title="Felhasználók módosítása/törlése" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -28,7 +28,6 @@
           CanUserSortColumns="False"
           SelectionMode="Single"
           SelectionUnit="FullRow"
-          Grid.RowSpan="2"
           >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Felhasználónév"

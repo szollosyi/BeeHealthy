@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BeeHealthyLoginClient.Ablakok.orvosManagement"
         mc:Ignorable="d"
-        Title="OrvosListWindow" Height="250" Width="400">
+        Title="Orvos listázása" Height="250" Width="400">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -28,7 +28,6 @@
           IsReadOnly="True"
           SelectionMode="Single"
           SelectionUnit="FullRow"
-          Grid.RowSpan="2"
           >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Név"

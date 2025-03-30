@@ -5,26 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BeeHealthyLoginClient.medicineManagement"
         mc:Ignorable="d"
-        Title="EditMedicineWindow" Height="300" Width="500">
+        Title="EditMedicineWindow" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <StackPanel>
-            <Label>Gyógyszernév:</Label>
-            <TextBox x:Name="tbxGyogyszerNev"/>
-            <Label>Gyártó:</Label>
-            <ComboBox x:Name="cbxGyartoId" IsEditable="True"/>
-            <Label>Kategória:</Label>
-            <ComboBox x:Name="cbxKategoria" IsEditable="True"/>
-            <Label>Megjegyzés:</Label>
-            <TextBox x:Name="tbxMegjegyzes"/>
-        </StackPanel>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Content="Törlés" Margin="5" Padding="10" Click="Torles"/>
-            <Button Content="Módosítás" Margin="5" Padding="10" Click="Modositas"/>
-            <Button Content="Mésge" Margin="5" Padding="10" Click="Megse"/>
+
+        <Button x:Name="btnBetoltes"
+                Content="Betöltés"
+                Click="btnBetoltes_Click"
+                Width="100"
+                Margin="10"/>
+
+        <DataGrid x:Name="dgMedicines"
+                  Grid.Row="1"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  CanUserReorderColumns="False"
+                  CanUserResizeRows="False"
+                  CanUserResizeColumns="False"
+                  CanUserSortColumns="False"
+                  SelectionMode="Single"
+                  SelectionUnit="FullRow">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Gyógyszer Név"
+                                    Binding="{Binding GyogyszerNev}"/>
+                <DataGridTextColumn Header="Kategória"
+                                    Binding="{Binding Kategoria}"/>
+                <DataGridTextColumn Header="Gyártó ID"
+                                    Binding="{Binding GyartoId}"/>
+                <DataGridTextColumn Header="Megjegyzés"
+                                    Binding="{Binding Megjegyzes}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Módosítás" Margin="5" Padding="10" Click="Modositas_Click"/>
+            <Button Content="Törlés" Margin="5" Padding="10" Click="Torles_Click"/>
+            <Button Content="Mégse" Margin="5" Padding="10" Click="Megse_Click"/>
         </StackPanel>
     </Grid>
 </Window>

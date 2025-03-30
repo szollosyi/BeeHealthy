@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BeeHealthyLoginClient.userManagement"
         mc:Ignorable="d"
-        Title="UserListWindow" Height="450" Width="800">
+        Title="Felhasználó listázása" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -28,7 +28,6 @@
                   IsReadOnly="True"
                   SelectionMode="Single"
                   SelectionUnit="FullRow"
-                  Grid.RowSpan="2"
                   >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Felhasználónév"

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BeeHealthyLoginClient.Ablakok.orvosManagement"
         mc:Ignorable="d"
-        Title="NewOrvosWindow" Height="200" Width="300">
+        Title="Új orvos felvétele" Height="200" Width="300">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
